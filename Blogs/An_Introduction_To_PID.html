@@ -1,0 +1,328 @@
+<html>
+
+<head>
+    <title>An Introduction To PID</title>
+    <style>
+        code,
+        pre {
+            background-color: #011813;
+            color: white;
+        }
+    </style>
+</head>
+
+
+<body style="background-color:#fae8a4">
+    <center>
+        <h1>An Introduction To PID</h1>
+    </center>
+    <p>Self-balancing and Line-following robot</p>
+    <p style="color:blue"><b style="color:black">&gt;</b> #PID &nbsp; &nbsp; #ROS2 &nbsp; &nbsp; #Gazebo</p>
+    <p><b>&gt;</b> In this blog, we will first learn about PID. Then using PID, we will implement self-balancing and line-following algorithms on a two wheeled robot. Finally, we will combine the two algorithms to make our bot balance itself and follow a
+        line.
+    </p>
+    <p><b>Authors : </b><a href="https://github.com/Aryaman22102002">Aryaman Shardul</a> and <a href="https://github.com/marck3131">Marck Koothoor</a></p>
+    <h2 id="table-of-contents">Table of Contents:</h2>
+    <ul>
+        <li><a href="#pid">PID</a>
+            <ul>
+                <li><a href="#what-is-pid">What is PID</a></li>
+                <li><a href="#queries-regarding-pid-tuning">Queries regarding PID tuning</a></li>
+            </ul>
+        </li>
+        <li><a href="#self-balancing-algorithm">Self balancing algorithm</a>
+            <ul>
+                <li><a href="#self-balancing-code-explanation">Self balancing code explanation</a></li>
+            </ul>
+        </li>
+        <li><a href="#line-following-algorithm">Line following algorithm</a>
+            <ul>
+                <li><a href="#line-following-code-explanation">Line following code explanation</a></li>
+            </ul>
+        </li>
+        <li><a href="#combining-self-balancing-and-line-following">Combining self balancing and line following</a>
+            <ul>
+                <li><a href="#combined-algorithm-code-explanation">Combined algorithm code explanation</a></li>
+            </ul>
+        </li>
+        <li><a href="#demonstration">Demonstration</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#references">References</a></li>
+    </ul>
+    <h2 id="pid">PID</h2>
+    <ul>
+        <li>Trust me, PID (proportional, integral, derivative) control is not as complicated as it sounds, because it is more complicated than it sounds. Just Kidding ;)</li>
+    </ul>
+    <h4 id="what-is-pid">What is PID</h4>
+    <ul>
+        <li>PID is the controller algorithm that provides the desired output after summing the individual proportional, integral and derivative terms.</li><br>
+        <li><b>Proportional Term</b>: Proportional gives an output that is proportional to current <code>error</code>. Actual reading is compared with the set_point and multiplied by proportional gain (Kp). <code>P_term = Kp*error</code></li><br>
+        <li><b>Integral Term</b>: Due to the limitation of P_term where there always exists an offset between the actual reading and set_point, I_term provides necessary action to eliminate the steady-state error. It basically adds up the small errors until
+            a limit. <code>I_term = Ki*∫ e(t) dt  ; where Ki = Integral gain,∫ e(t) dt = Cumulative error</code></li><br>
+        <li><b>Derivative term</b>: I_term cannot predict the sudden change in error, So D_term overcomes this problem as it&#39;s output depends on the rate of change of error with respect to time, multiplied by derivative constant.<code>D_term = Kd*(de/dt)  ,where Kd = Derivative gain,de/dt = Change in error w.r.t time</code></li><br>
+        <li><b>Correction_term</b>: Simply it is, <code>P_term + I_term + D_term</code></li>
+    </ul>
+    <p><img src="https://user-images.githubusercontent.com/82901720/143063046-6c408bac-7efc-4913-8fd6-e9e89745fc86.jpeg" alt="PID"></p>
+    <h4 id="queries-regarding-pid-tuning">Queries regarding PID tuning</h4>
+    <p>Following are some of the doubts asked by :</p>
+    <ol>
+        <li><b>P</b>atr<b>I</b>ck A<b>D</b>ams : What sequence to follow in PID ?<pre style="width:900px"><code>    
+    P-D-I) Firstly set the Kp term (Kd = Ki = 0), such that the performance is close to our desired state, 
+    then set the Kd term (Ki = 0), noticing that perfomance is improved and now set the Ki term and 
+    also tweak the limits for cumulative area. After ample of time, if this doesn&#39;t seem working for you , 
+    then for (P-I-D)
+
+</code></pre>
+        </li>
+        <li><b>P</b>a<b>I</b>ge <b>D</b>&#39;cruz : For self-balancing, the bot isn&#39;t lifting up at even maximum forward speed, How to resolve this ?<pre style="width:700px"><code>    
+    This can occur if the mass of the bot is comparatively higher than it&#39;s wheels , 
+    so try reducing the mass.
+
+</code></pre>
+        </li>
+        <li><b>P</b>arker <b>I</b>an <b>D</b>ale : P-I-D is working fine for a span of time , then there&#39;s a sudden spike, Why?<pre style="width:800px"><code>    
+    If you notice P-I-D working fine for a span , do not change the values for Kp,Kd,Ki, I repeat ! 
+    Spike can possibly occur due to the increasing cumulative area, so tweak the limits.
+    <b>Note :</b> If working with ROS , you can use plotjuggler to tweak values seeing the graph.
+
+</code></pre> Replied to the comment:
+            <b>P</b>a<b>I</b>ne <b>D</b>axton : I tried this solution, but it didn&#39;t work.<pre style="width:1000px"><code>    
+    Truely possible , PID works different in different situation. 
+    Here are two more reasons and solutions for spike:
+    <ul>
+        <li><b>Derivative kick</b> : Any change in set_point causes an instantaneous change in error. 
+The derivative of this change is infinity (in practice, since dt isn’t 0 it just winds up being a really 
+big number).This number gets fed into the pid equation, which results in an undesirable spike in the output.
+Solution for this is that we take the rate of change in inputs directly instead of taking it for the error 
+(where, error = set_point - input;)
+error_rate = (input - last_input); and not error_rate = (error - last_error);
+        </li>
+        <li><b>Integral kick</b> : When tuning, there might be a drastic change in I_term, 
+this is because suddenly the cumulative area gets halved (Because all of a sudden, 
+you multiply this new Ki times the entire error sum that you have accumulated). 
+Recommended solution for this is to multiply Ki initially itself instead at last.
+I_term += (ki * error);
+
+</code></pre>
+        </li>
+        </li>
+        </ul>
+        <li><b>P</b>atr<b>I</b>cia <b>D</b>&#39;souza : The performance is slightly on either side of the set_point (0), What can I do to attain desired state?<pre style="width:850px"><code> 
+    Just change the set_point = 0; to a positive or negative value as per the performance.
+
+</code></pre>
+            <h2 id="self-balancing-algorithm">Self balancing algorithm</h2>
+        </li>
+    </ol>
+    <p><img src="https://user-images.githubusercontent.com/82901720/143029391-f321a3d8-2588-4bac-9d87-943b9e536f62.gif" alt="self_balancing"></p>
+    <ul>
+        <li>To balance a two-wheeled bot, we give forward and backward velocity simultaneously using PID algorithm.</li>
+        <li>We use an IMU sensor plug-in here which gives us the pitch angle readings as input and that helps us in balancing the bot.</li>
+    </ul>
+    <h4 id="self-balancing-code-explanation">Self balancing code explanation</h4>
+    <ol>
+        <li>
+            <p>Import required libraries and declare the variables.</p>
+        </li>
+        <li>
+            <p>Creating a class for publisher-subscriber node. Subcribe to IMU sensor-plugin <code>/demo/imu</code> and publish velocity to differential drive plugin <code>/cmd/vel</code></p>
+        </li>
+        <li>
+            <p>Define a function to convert pitch readings from radians to degrees.</p>
+        </li>
+        <li>
+            <p>Define the balacned state of the bot.</p>
+        </li>
+        <li>
+
+            After calculations for PID, publish the correction speed.
+            <pre style="width:1000px"><code>
+            pitch = msg-&gt;orientation.y;        // Assigning value of orientation.y taken from imu 
+            error = Convert(pitch);           // Converting into degrees 
+            
+            // Calculations for Pitch error, pitch error difference, previous pitch error, pitch rate, pitch area 
+            pitch_error = 5*(error-pitch_desired); 
+            pitch_rate = pitch_error - prev_pitch_error; 
+            pitch_area += pitch_error ;      
+            
+            // Resetting pitch_area zero everytime it crosses maximum value 
+            if(fabs(pitch_area) &gt; 5.0/1.4) 
+            { 
+                pitch_area = 0.0; 
+            } 
+            
+            // Calculating PID terms 
+            P_term = Kp<em>pitch_error;
+            D_term = Kd</em>pitch_rate; 
+            I_term = pitch_area*Ki; 
+            correction_speed = P_term + D_term + I_term; 
+            prev_pitch_error = pitch_error; 
+        } 
+        
+        // Callback function for publisher 
+        void timer_callback() 
+        { 
+            auto message = geometry_msgs::msg::Twist(); 
+            message.linear.x = correction_speed; 
+            RCLCPP_INFO(this-&gt;get_logger(), &quot;Publishing: &#39;%lf&#39;&quot;, message.linear.x); publisher_-&gt;publish(message); 
+        }
+  </code></pre>
+        </li>
+    </ol>
+    <h2 id="line-following-algorithm">Line following algorithm</h2>
+
+    <p><img src="https://user-images.githubusercontent.com/82901720/142982993-8036e7dc-2ccb-42e8-b8f7-fe1d023002a9.gif" alt="line_following"></p>
+
+    <ul>
+        <li> The bot follows a white line over a black surface. </li>
+        <li> For this purpose, we use &#39;RGB camera sensor&#39; plugin in Gazebo. </li>
+        <li> It helps us read the rgb values of the pixels detected by the camera&#39;s frame. </li>
+        <li> We will use PID for line-following. </li>
+        <li> Below is the explanation of the algorithm using code snippets. </li>
+    </ul>
+
+    <h4 id="line-following-code-explanation">Line following code explanation</h4>
+    <ol>
+        <li> First, we import the various libraries and declare all the variables needed. </li>
+        <li> Then, we create a class and declare the publisher and subscriber nodes. We publish velocity to the differential drive plugin and subscribe to the rgb camera. </li>
+        <li> The callback function of the subscriber first reads the &#39;r&#39; values of the pixels. We count the number of white pixels and also store the index of the first white pixel. </li>
+        <li> Then we calculate the left deviation or right deviation of the bot from the optimal position and accordingly calculate the error.
+            <pre><code>
+       if( r &gt; 125.00)
+       {
+         if(flag == 1)
+         {
+           index = i+1;                      // Assigning position of first white pixel to variable index
+           flag = 0;
+         }
+          count ++;                          // Counting total number of white pixels
+       }
+      }
+   
+       if(count == 10)                       // If we have all white pixels in range of camera
+       {
+         if(index &lt;= 12)                     // Checking position of first white pixel with respect to ideal position of first white pixel
+         {
+           error = 16 - index - 4;           // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the left side
+           direction = 1;
+         }
+         else
+         {
+           error = index + 4 - 17;           // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the right side
+           direction = 2;
+         }
+       }
+       else if(count &gt;= 5 &amp;&amp; count &lt; 10)     // If we don&#39;t have all white pixels in range of camera
+       {
+         if(index &lt; 12)
+         {
+           error = 12 - index;               // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the left side
+           direction = 1;
+         }
+         else if(index &gt; 21)
+         {
+           error = index - 21;               // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the right side
+           direction = 2;
+         }
+       }
+
+</code></pre>
+        </li>
+        <!--<ol start="5">-->
+        <li>
+            <p>Now we calculate the PID terms.</p>
+            <pre style="width:500px"><code>     
+    error_area += error;
+    error_diff = error - prev_error;
+    prev_error = error;
+    correction = kp*error + kd*error_diff + ki*error_area;
+    ang_speed = correction;
+
+</code></pre>
+        </li>
+        <li>
+            <p>In the callback function of the publisher, we decide the direction in which the bot has to turn depending upon the error calculated above and accordingly provide the angular velocity in the appropriate direction.</p>
+            <pre style="width:400px"><code>  
+    if(direction == 1)
+    {  
+    auto message = geometry_msgs::msg::Twist();
+    message.linear.x = 0.2;
+    message.angular.z = -ang_speed ;
+    publisher_-&gt;publish(message);
+    }
+    else if(direction == 2)
+    {
+    auto message = geometry_msgs::msg::Twist();
+    message.linear.x = 0.2;
+    message.angular.z = ang_speed ;
+    publisher_-&gt;publish(message);
+    }
+
+</code></pre>
+        </li>
+    </ol>
+    <h2 id="combining-self-balancing-and-line-following">Combining self balancing and line following</h2>
+    <p><img src="https://user-images.githubusercontent.com/82901720/143025191-197331fe-95ed-4e2e-961e-0444ad9548a6.gif" alt="WallE"></p>
+    <ul>
+        <li>To combine self-balancing and line-following, we must first ensure that the bot is balanced and only then we will provide it angular velocity.</li>
+        <li>The code for self-balancing and line-following remains relatively same. The only major difference would occur in the PID tuning of the bot and a few important conditions to be checked.</li>
+        <li>Below is a flow-chart of the algorithm.</li>
+    </ul>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142978552-9b1ff78d-f6da-4be1-9322-bab5d1deaf82.png" alt="combined_algorithm_flowchart" style="height:1400px; width:680px;"></p>
+    <h4 id="combined-algorithm-code-explanation">Combined algorithm code explanation</h4>
+    <ol>
+        <li>As said above, the code for self-balancing and line-following remains relatively the same. Here, the only difference comes in line following since we have used a red line instead of white line and have reduced it&#39;s thickness. But the overall
+            logic remains same.</li>
+        <li>After writing the self-balancing and line-following codes, we move to the callback function of the publisher.</li>
+        <li>Here, we first check whether the bot is in a balanced state. If not, then we provide it with only linear velcity to balance itself.</li>
+        <li>Once, the bot is balanced, we give it angular velocity too whose direction is decied depending upon the direction of it&#39;s deviation from the optimal path.</li>
+        <li>Below is the snippet of this callback funtion of the publihser. ```C++ void timer_callback()</li>
+
+        <pre style="width:1000px"><code>
+    // If bot is not balanced, provide only linear velocity for balancing else provide both linear and angular velocity 
+    { 
+        if (balanced_state == false) 
+        { auto message = geometry_msgs::msg::Twist(); 
+          message.linear.x = correction; 
+          message.angular.z = 0.0;
+          RCLCPP_INFO(this-&gt;get_logger(), &quot;Publishing: &#39;%lf&#39;&quot;, message.linear.x); 
+          publisher_-&gt;publish(message); 
+        } 
+        else 
+        { 
+            if (direction == 1) 
+            { 
+              auto message = geometry_msgs::msg::Twist(); 
+              message.linear.x = speed; 
+              message.angular.z = -ang_speed; publisher_-&gt;publish(message); 
+              RCLCPP_INFO(this-&gt;get_logger(), &quot;Publishing ang: &#39;%lf;&quot;, message.angular.z);
+            }
+            else if (direction == -1)
+            {
+            auto message = geometry_msgs::msg::Twist();
+            message.linear.x = speed;
+            message.angular.z = ang_speed;
+            publisher_-&gt;publish(message);
+            RCLCPP_INFO(this-&gt;get_logger(), &quot;Publishing ang: &#39;%lf;&quot;, message.angular.z);
+            }
+        }   
+    }
+
+</code></pre>
+    </ol>
+
+
+    <h2 id="demonstration">Demonstration</h2>
+    <p>The following video is a demonstration of all the three algorithms implemented on our two wheeled bot.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dTgdCtd-fmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <h2 id="conclusion">Conclusion</h2>
+    <p>PID controller is a widely used concept in various projects and real life applications. In this blog, with the help of PID ,we implemented three algorithms on a two wheeled self-balancing + line-following robot. We hope you all enjoyed reading this
+        blog and hope that this blog encourages you all to implement them yourselves. You can have a look at our project&#39;s <a href="https://github.com/Aryaman22102002/Wall-e-simulation-ros2">github repository</a>.</p>
+    <h2 id="references">References</h2>
+    <ul>
+        <li>For PID - <a href="https://www.wescottdesign.com/articles/pid/pidWithoutAPhd.pdf">https://www.wescottdesign.com/articles/pid/pidWithoutAPhd.pdf</a></li>
+        <li>For Gazebo Sensor plug-ins - <a href="http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera">http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera</a></li>
+    </ul>
+</body>
+
+</html>

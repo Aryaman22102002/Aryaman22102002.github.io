@@ -1,0 +1,257 @@
+<html>
+
+<head>
+    <title>Beginner's tutorial for ROS 2</title>
+    <style>
+        code,
+        pre {
+            background-color: #011813;
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="background-color:#fae8a4">
+    <center>
+        <h1 id="beginners-tutorial-for-ros-2">Beginner&#39;s tutorial for ROS 2</h1>
+    </center>
+    <p style="color:blue"> <b style="color:black">&gt;</b> #ros2-foxy </p>
+    <p><b>&gt;</b> In this blog, we will first install ROS 2, create a ROS 2 workspace, create a ROS 2 package and then learn a few basic things about it.</p>
+    <p> <b>Author :</b> <a href="https://github.com/Aryaman22102002">Aryaman Shardul</a></p>
+    <p>
+        <b>Note :</b> These instructions are for ROS 2 Foxy and were tested on Ubuntu 20.4 LTS. I have installed via Debian packages.</p>
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+        <li><a href="#what-is-ros-2">What is ROS 2</a></li>
+        <li><a href="#ros-2-installation-instructions">ROS 2 Installation Instructions</a>
+            <ul>
+                <li><a href="#setting-up-the-locale-and-resources">Setting up the locale and resources</a></li>
+                <li><a href="#installing-the-ros-2-packages">Installing the ROS 2 packages</a></li>
+                <li><a href="#setting-up-the-environment">Setting up the environment</a></li>
+                <li><a href="#autocomplete-using-argcomplete-optional">Autocomplete using argcomplete</a></li>
+                <li><a href="#checking-whether-ros-2-has-been-installed-or-not">Checking whether ROS 2 has been installed or not</a></li>
+            </ul>
+        </li>
+        <li><a href="#Setting-up-the-ros-2-workspace">Setting up the ROS 2 workspace</a></li>
+        <li><a href="#creating-a-ros-2-package">Creating a ROS 2 package</a></li>
+        <li><a href="#what-is-new-in-ROS-2">What is new in ROS 2</a>
+            <ul>
+                <li><a href="#provides-support-to-different-operating-systems">Provides support to different Operating Systems</a></li>
+                <li><a href="#ros-2-nodes">ROS 2 nodes</a>
+                    <ul>
+                        <li><a href="#what-is-a-fast-dds-discovery-server">What is a Fast DDS Discovery Server</a></li>
+                    </ul>
+                </li>
+                <li><a href="#client-libraries">Client Libraries</a></li>
+                <li><a href="#launch-files">Launch Files</a></li>
+            </ul>
+        </li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#references">References</a></li>
+    </ul>
+    <h2 id="what-is-ros-2">What is ROS 2</h2>
+    <ul>
+        <li>ROS (Robotics Operating System) is a collection of software frameworks for robot software development. </li>
+        <li>ROS 2 is the newer version of ROS.</li>
+    </ul>
+    <h2 id="ros-2-installation-instructions">ROS 2 Installation instructions</h2>
+    <h3 id="setting-up-the-locale-and-resources">Setting up the locale and resources</h3>
+    <ul>
+        <li>
+            <p>Our first step is to check whether we have a locale which supports UTF-8.<br/>
+                <code> locale </code> </p>
+        </li>
+        <li>
+            <p>If not, then follow the commands below.<br/></p>
+            <pre style="width: 500px;"><code>
+    sudo apt update &amp;&amp; sudo apt install locales
+
+    sudo locale-gen en_US en_US.UTF-8
+
+    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 
+
+    export LANG=en_US.UTF-8   
+
+</code></pre>
+        </li>
+        <li>
+            <p>Now again let&#39;s verify whether it&#39;s installed or not.<br/>
+                <code> locale </code></p>
+        </li>
+        <li>
+            <p>Our first step is to authorize the GPG key and add the ROS 2 apt repositories to our system.</p>
+            <pre style="width: 1060px;"><code>
+    sudo apt update &amp;&amp; sudo apt install curl gnupg2 lsb-release
+
+    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg   
+
+</code></pre>
+        </li>
+        <li>
+            <p>Then we add the repository to our source list.<br/>
+                <code> echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] <a href="http://packages.ros.org/ros2/ubuntu">http://packages.ros.org/ros2/ubuntu</a> $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null</p>
+</code></li>
+    </ul>
+    <h3 id="installing-the-ros-2-packages">Installing the ROS 2 packages</h3>
+    <ul>
+        <li>
+            <p>Now we update our caches.<br/>
+                <code> sudo apt update </code></p>
+        </li>
+        <li>
+            <p>Moving ahead, we have two options for ROS 2 installation.</p>
+            <ol>
+                <li> Desktop installation </li>
+                <li> ROS base installation </li>
+            </ol>
+        </li>
+    </ul>
+    <p>The desktop installtion comes with all the required tools, debugging features and GUI whereas the ROS base installation comes with only the core packages which are required and nothing more. Therefore, I would recommend to go with the desktop installation
+        option.
+    </p>
+    <ol>
+        <li>Desktop install: <code> sudo apt install ros-foxy-desktop </code><br/> or <br/></li>
+        <li>ROS base install: <code> sudo apt install ros-foxy-ros-base </code><br/></li>
+    </ol>
+    <p>We are done with the installation of ROS 2.</p>
+    <h3 id="setting-up-the-environment">Setting up the environment</h3>
+    <ul>
+        <li>
+            <p>Open up a new terminal. Now we need to source the script in order to be able to use ROS 2 commands. Enter the following command:<br/>
+                <code> source /opt/ros/foxy/setup.bash </code></p>
+        </li>
+        <li>
+            <p>Now we have to source this script everytime we need to use ROS 2 commands. In order to avoid it, follow the steps below:<br/>
+                <code> gedit ~/.bashrc </code></p>
+        </li>
+        <li>
+            <p>Now navigate to the end of the file and enter <code> source /opt/ros/foxy/setup.bash</code> at the end of the file. Save it and close the file. What happens is whenever we open a new terminal, bashrc is automatically executed. So along with
+                that, the process of sourcing our script is also performed automatically.</p>
+        </li>
+    </ul>
+    <h3 id="autocomplete-using-argcomplete-optional">Autocomplete using argcomplete (Optional)</h3>
+    <ul>
+        <li>To be able to autocomplete, enter: <code> sudo apt install -y python3-pip </code></li>
+    </ul>
+    <h3 id="checking-whether-ros-2-has-been-installed-or-not">Checking whether ROS 2 has been installed or not</h3>
+    <ul>
+        <li>Let&#39;s run a basic talker-listener example</li>
+        <li>We will run a C++ talker node and a python listener node to ensure that both API&#39;s are working correctly.</li>
+        <li>In one terminal, enter : <code> ros2 run demo_nodes_cpp talker </code></li>
+        <li>In another terminal, enter : <code> ros2 run demo_nodes_py listener </code></li>
+        <li>The desired output would have the talker printing that it published the message and the listener printing that it heard the message.</li>
+    </ul>
+    <h2 id="setting-up-the-ros-2-workspace">Setting up the ROS 2 workspace</h2>
+    <p>We have already installed ROS 2 and configured it&#39;s environment above. Now in this section, we will be setting up a ROS2 workspace. <br/><br>A ROS 2 workspace is a directory containing all the ROS 2 packages.</p>
+    <ul>
+        <li>
+            <p>Open a new terminal and enter the commands:</p>
+            <pre style="width: 200px;"><code>
+  mkdir -p ~/ros2_ws/src
+            
+  cd ros2_ws
+
+</code></pre>
+            <p>Note that the name of the workspace doesn&#39;t matter. You can keep it anything you wish. <br/> The above two lines create the workspace, the src directory and navigates back to the workspace.</p>
+        </li>
+    </ul>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142715568-35ff37ac-5b0c-4126-b5ec-2994371e7d3e.png" alt="ros2_ws"></p>
+    <ul>
+        <li>
+            <p>Now we install colcon. It is an iteration of ROS build tools. To install colcon, enter the following command:<br/>
+                <code> sudo apt install python3-colcon-common-extensions </code></p>
+        </li>
+        <li>
+            <p>Now enter the command : <code> colcon build</code> . Now your workspace should have the following directories.<br/> - Build<br/> - Install<br/> - Src<br/> - Log<br/> The build directory stores the intermediate files, the install directory
+                installs the packages and log directory conatins the logging information.</p>
+        </li>
+        <li>
+            <p>Now we source the overlay using <code> . install/setup.bash </code> <br/></p>
+        </li>
+    </ul>
+    <p>Note : <code> colcon build --symlink-install</code> saves you from having to rebuild every time you tweak python scripts.</p>
+    <ul>
+        <li>
+            <p>To install ros dependecies, enter : <code> rosdep install -i --from-path src --rosdistro foxy -y </code><br/> Note: Incase this command is not recognised, then you may have to install the rosdep command first.&#39;</p>
+        </li>
+        <li>
+            <p>To uninstall ROS 2 or switch to a source-based install once you have already installed from binaries, run the following command:
+                <code> sudo apt remove ~nros-foxy-* && sudo apt autoremove </code><br/></p>
+        </li>
+    </ul>
+    <p>With this you have set up your ROS 2 workspace. Now it&#39;s time to create your first ROS 2 package.</p>
+    <h2 id="creating-a-ros-2-package">Creating a ROS 2 package</h2>
+    <p>A ROS 2 package is like a container for all the ROS 2 nodes, dependencies, etc.</p>
+    <ul>
+        <li>
+            <p>Enter: </p>
+            <pre style="width: 200px;"><code>
+    colcon build
+
+    . install/setup.bash
+
+    cd src
+
+</code></pre>
+        </li>
+    </ul>
+    <p>Now ROS 2 CMake and Python packages both have different basic requirements. A CMake package contains a bare minimum of package.xml and CMakeLists.txt files whereas a python package conatins setup.py, setup.cfg, package.xml and resource/package_name
+        files.
+    </p>
+    <ul>
+        <li>Now to create a CMake package, enter the following command. Before that, make sure you are in your src folder.<br/>
+            <code> ros2 pkg create --build-type ament_cmake <package_name> </code><br/></li>
+    </ul>
+    <p>Whereas for Python package, enter the following command.<br/>
+        <code> ros2 pkg create --build-type ament_python <package_name> </code></p>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142715570-4f3d51de-ef6c-4ed6-a5c9-e730fff9d97f.png" alt="my_package"> </p>
+    <ul>
+        <li>
+            <p>Now return to the root of your workspace i.e. simulation_ws in my case and again build it and source the overlay.<br/></p>
+            <pre style="width: 200px;"><code>
+    colcon build
+
+    . install/setup.bash
+    
+</code></pre>
+        </li>
+    </ul>
+    <p> Again note that the above two commands must be entered in the root of your workspace.</p>
+    <ul>
+        <li>If you only want to build a single package, you can use the command : <code> colcon build --packages-select my_package </code><br/></li>
+    </ul>
+    <p>Congratulations you have successfully built a ROS 2 package.</p>
+    <h2 id="what-is-new-in-ros-2">What is new in ROS 2</h2>
+    <h3 id="provides-support-to-different-operating-systems">Provides support to different Operating Systems</h3>
+    <p> Ros or Ros1 was meant for Ubuntu, Fedora and Arch Linux. But Ros2 provides support for macOS and Windows too.</p>
+    <h3 id="ros-2-nodes">ROS 2 Nodes</h3>
+    <p> The process of advertising and de-advertising a node in ROS used the ROS Master. The entire process was based on a single node. But ROS 2 uses a Fast DDS Discovery Server due to which the entire process does not depend only on a single node.</p>
+    <h4 id="what-is-a-fast-dds-discovery-server">What is a Fast DDS Discovery Server</h4>
+    <ul>
+        <li>The Fast DDS Discovery Server protocol offers a centralized dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.</li>
+        <li>It basically provides a Client-Server Architecture that allows nodes to connect with each other using an intermediate server. </li>
+        <li>Here, each node functions as a discovery client.</li>
+        <li>They share their information with one or more than one discovery servers and receive discovery information from it.</li>
+    </ul>
+    <p><img src="https://user-images.githubusercontent.com/82901720/140406979-2a34a390-0cca-480a-968b-5d775a0dc3fd.png" alt="ds_explanation"></p>
+    <h3 id="client-libraries">Client Libraries</h3>
+    <ul>
+        <li>ROS uses roscpp as the client library for C++ and rospy as the client library for python. </li>
+        <li>But ROS 2 uses rclcpp and rclpy as the client libraries for C++ and python respectively.</li>
+    </ul>
+    <h3 id="launch-files">Launch Files</h3>
+    <ul>
+        <li>ROS launch files were mainly written in XMl but ROS 2 launch files are mainly written in python.</li>
+    </ul>
+    <h2 id="conclusion">Conclusion</h2>
+    <ul>
+        <li>We successfully installed ROS 2 and set up its workspace, created a ROS 2 package and explored some of the new and exciting features of ROS 2.</li>
+    </ul>
+    <h2 id="references">References</h2>
+    <ul>
+        <li>Offcial ROS 2 Foxy documentation - <a href="https://docs.ros.org/en/foxy/index.html">https://docs.ros.org/en/foxy/index.html</a></li>
+    </ul>
+
+</body>
+
+</html>

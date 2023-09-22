@@ -1,0 +1,319 @@
+<html>
+
+<head>
+    <title>Creating a world file and all about SDF in ROS 2</title>
+    <style>
+        code,
+        pre {
+            background-color: #011813;
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="background-color:#fae8a4">
+    <center>
+        <h1 id="creating-a-world-file-and-all-about-sdf-in-ros-2">Creating a world file and all about SDF in ROS 2</h1>
+    </center>
+    <p style="color:blue"><b style="color:black">&gt;</b> #ros2-foxy &nbsp; &nbsp; #gazebo-simulator </p>
+    <p><b style="color:black">&gt;</b> In this blog, we will talk about world files in Gazebo, how to design a world through an image, why should you use an SDF file in ROS 2 as compared to an URDF file and ROS 2 launch files.</p>
+    <p><b>Author :</b> <a href="https://github.com/Aryaman22102002">Aryaman Shardul</a></p>
+    <p> <b>Note :</b> These instructions are for ROS 2 Foxy and Gazebo 11 and were tested on Ubuntu 20.4 LTS.</p>
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+        <li><a href="#what-is-a-world-file-in-Gazebo">What is a world file in Gazebo</a></li>
+        <li><a href="#how-to-design-a-world-in-gazebo-through-an-image">How to design a world in Gazebo through an image</a>
+            <ul>
+                <li><a href="#interlinking-of-the-various-files">Interlinking of the various files</a></li>
+                <li><a href="#designing-the-image">Designing the image</a></li>
+            </ul>
+        </li>
+        <li><a href="#SDF-in-ROS-2">SDF in ROS 2</a>
+            <ul>
+                <li><a href="#what-is-a-SDF-file">What is a SDF file</a></li>
+                <li><a href="#why-use-a-SDF-file-in-ROS-2">Why use a SDF file in ROS 2</a></li>
+            </ul>
+        </li>
+        <li><a href="#what-are-launch-files">What are launch files</a>
+            <ul>
+                <li><a href="#ROS-2-launch-files">ROS 2 launch files</a></li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="what-is-a-world-file-in-Gazebo">What is a world file in Gazebo</h2>
+    <ul>
+        <li>The world file contains a description of the world to be simulated by Gazebo. </li>
+        <li>It describes the layout of robots, sensors, light sources, user interface components, and so on. </li>
+        <li>The world file can also be used to control some aspects of the simulation engine, such as the force of gravity or simulation time step.</li>
+        <li>Gazebo world files are written in XML.</li>
+        <li>So, basically a world file helps to create an environment according to the purpose of the bot.</li>
+        <li>It generally end with a <code> .world</code> extension.</li>
+    </ul>
+    <h2 id="how-to-design-a-world-in-gazebo-through-an-image">How to design a world in Gazebo through an image</h2>
+    <h3 id="interlinking-of-the-various-files">Interlinking of the various files</h3>
+    <ul>
+        <li>Gazebo has an inbuilt &#39;Building Editor&#39; which helps you to add walls, add objects, etc to your world.</li>
+        <li>But in this blog, we will learn how to design a world through an image.</li>
+        <li>As an example, we will be working on a world for a line follower robot.</li>
+        <li>The first step is to have a very basic world file ready in the worlds folder in the src of our ROS 2 package.</li>
+    </ul>
+    <pre style="width: 400px"><code class="language-xml">    
+    &lt;model name=&quot;ground&quot;&gt;
+    &lt;pose&gt;1 2.3 -.1 0 0 0&lt;/pose&gt;
+    &lt;static&gt;1&lt;/static&gt;
+    &lt;link name=&quot;ground&quot;&gt;
+      &lt;collision name=&quot;ground_coll&quot;&gt;
+        &lt;geometry&gt;
+          &lt;box&gt;
+            &lt;size&gt;10 10 .1&lt;/size&gt;
+          &lt;/box&gt;
+        &lt;/geometry&gt;
+        &lt;surface&gt;
+          &lt;contact&gt;
+            &lt;ode/&gt;
+          &lt;/contact&gt;
+        &lt;/surface&gt;
+      &lt;/collision&gt;
+      &lt;visual name=&quot;ground_vis&quot;&gt;
+        &lt;geometry&gt;
+          &lt;box&gt;
+            &lt;size&gt;10 10 .1&lt;/size&gt;
+          &lt;/box&gt;
+        &lt;/geometry&gt;
+        &lt;material&gt;
+          &lt;script&gt;
+            &lt;uri&gt;models/course.material&lt;/uri&gt;
+            &lt;name&gt;course&lt;/name&gt;
+          &lt;/script&gt;
+        &lt;/material&gt;
+      &lt;/visual&gt;
+    &lt;/link&gt;
+    &lt;/model&gt; 
+
+</code></pre>
+    <ul>
+        <li>
+            <p>As you can observe from the above code snippet, the file has the very basic elements of a world in Gazebo. </p>
+        </li>
+        <li>
+            <p>But the important thing to be noted is what is inside the script tag whose parent element is the material tag. </p>
+        </li>
+        <li>
+            <p>This script tag contains an URI(Uniform Resource Identifier) which links our world file to the &#39;course.material&#39; file located in the &#39;models&#39; folder of the src.</p>
+        </li>
+        <li>
+            <p>The contents of the models folder will describe the visual aspect of our world.</p>
+            <pre style="width: 300px;"><code>     
+    material course
+    {
+      receive_shadows on
+      technique
+      {
+        pass
+        {
+          ambient 0.5 0.5 0.5 1.0
+          texture_unit
+          {
+            texture sra.png
+          }
+        }
+      }
+    }
+
+</code></pre>
+        </li>
+        <li>
+            <p>This file&#39;s main job is to connect the world file in our worlds folder with the image of our world located in our models folder.</p>
+        </li>
+        <li>
+            <p>The name mentioned in the name tag of the script in the world file(here it&#39;s &#39;course&#39;) must match with the name on the first line after the word &#39;materials&#39; in the course.material file.</p>
+        </li>
+        <li>
+            <p>Lastly, we must have an image of the design of our world in the models folder.</p>
+        </li>
+        <li>
+            <p>Note that this method is tried and test for images with &#39;.png&#39; and &#39;.jpg&#39; extensions.</p>
+        </li>
+    </ul>
+    <h3 id="designing-the-image">Designing the image</h3>
+    <ul>
+        <li>As mentioned earlier, we are designing a world for a line-follower robot as an example.</li>
+        <li>For a line-follower robot, we need a decent path for it follow.</li>
+        <li>Also, we need to give the path and it&#39;s surroundings different colours so that the bot can detect where is the line.</li>
+        <li>To design the geometry of the path, we will use Autocad software as our path if full of curves. So to ensure uniform width of the path, we will use the &#39;offset&#39; feature in autocad.</li>
+        <li>Also, autocad has tools for drawing curves which will be very useful to us.</li>
+        <li>After designing the path in autocad, export it as a png or jpg file.</li>
+        <li>To add colours to the image, we can MS Paint or any other software similar to it.</li>
+        <li>Finally, if we want a partcular size of the path, we again import the coloured image in autocad and use the &#39;scaling&#39; feature in autocad to scale the image appropriately.</li>
+        <li>Now you can launch this image as your world by using a ROS 2 launch file.</li>
+        <li>In Gazebo, you can also you use the &#39;Building Editor&#39; tool to add further details and objects to your world.</li>
+        <li>Congratulations, you have successfully learnt to create your own world in Gazebo by designing an image. </li>
+        <li>The images below are of two of the worlds in Gazebo designed by me for a line-follower bot.</li>
+    </ul>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142729000-43c35385-286b-4b51-b4ec-8cf8fa71cea7.png" alt="sra" style="width: 800px; height:600px;"></p>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142729001-0dd464c3-b64a-4557-ae0c-6343b1018ea4.png" alt="redpath" style="width: 800px; height:600px;"></p>
+    <ul>
+        <li>How they appear after being launched in Gazebo.</li>
+    </ul>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142729396-784fa061-b716-4e88-9447-66438612c6ed.png" alt="sra_Gazebo" style="width: 800px; height:600px;"></p>
+    <p><img src="https://user-images.githubusercontent.com/82901720/142729399-084a3624-f780-43d0-b978-ef902ad0318e.png" alt="redpath_Gazebo" style="width: 800px; height:600px;"></p>
+    <ul>
+        <li><b>Note :</b> Always launch the world made by this method from inside of your ROS 2 package or else there may be a slight chance of the world not spawning properly.</li>
+    </ul>
+    <h2 id="SDF-in-ROS-2">SDF in ROS 2</h2>
+    <h3 id="what-is-a-SDF-file">What is a SDF file</h3>
+    <ul>
+        <li>SDF is an acronym for Standard Database Format.</li>
+        <li>A SDF file basically contains all the information about your model.</li>
+        <li>The model may be your robot or your world with objects.</li>
+        <li>It describes a robot’s physical description to ROS.</li>
+        <li>It helps us define a robot so that we can test it in siumlation under various controlled conditions in a simulator like Gazebo.</li>
+        <li>An URDF(Unified Robotic Description Format) file is similar to a SDF file.</li>
+        <li>Both are written in XML.</li>
+        <li>But both have some differences in terms of their syntax.</li>
+        <li>Here is a small glimpse of my SDF file.</li>
+    </ul>
+    <pre style="width: 800px;"><code class="language-xml">        
+      &lt;sdf version=&#39;1.7&#39;&gt;
+          &lt;model name=&#39;walle&#39;&gt;
+            &lt;link name=&#39;base_link&#39;&gt;
+              &lt;inertial&gt;
+                &lt;pose&gt;-0 0 -0.0025 0 -0 0&lt;/pose&gt;
+                &lt;mass&gt;0.00680000&lt;/mass&gt;
+                &lt;inertia&gt;
+                  &lt;ixx&gt;0.000121426&lt;/ixx&gt;
+                  &lt;ixy&gt;1.28749e-19&lt;/ixy&gt;
+                  &lt;ixz&gt;2.00583e-22&lt;/ixz&gt;
+                  &lt;iyy&gt;0.000118984&lt;/iyy&gt;
+                  &lt;iyz&gt;-4.40398e-24&lt;/iyz&gt;
+                  &lt;izz&gt;0.000240029&lt;/izz&gt;
+                &lt;/inertia&gt;
+              &lt;/inertial&gt;
+              &lt;collision name=&#39;base_link_collision&#39;&gt;
+                &lt;pose&gt;0 0 0 0 -0 0&lt;/pose&gt;
+                &lt;geometry&gt;
+                  &lt;mesh&gt;
+                    &lt;scale&gt;1 1 1&lt;/scale&gt;
+                    &lt;uri&gt;meshes/base_link.STL&lt;/uri&gt;
+                  &lt;/mesh&gt;
+                &lt;/geometry&gt;
+              &lt;/collision&gt;
+              &lt;collision name=&#39;base_link_fixed_joint_lump__camera_link_collision_1&#39;&gt;
+                &lt;pose&gt;0.058 0 -0.015 0 -0 0&lt;/pose&gt;
+                &lt;geometry&gt;
+                  &lt;box&gt;
+                    &lt;size&gt;0.007 0.007 0.007&lt;/size&gt;
+                  &lt;/box&gt;
+                &lt;/geometry&gt;
+                &lt;surface&gt;
+                  &lt;contact&gt;
+                    &lt;ode/&gt;
+                  &lt;/contact&gt;
+                  &lt;friction&gt;
+                    &lt;ode/&gt;
+                  &lt;/friction&gt;
+                &lt;/surface&gt;
+              &lt;/collision&gt;     
+
+</code></pre>
+    <h3 id="why-use-a-SDF-file-in-ROS-2">Why use a SDF file in ROS 2</h3>
+    <ul>
+        <li>In ROS2, the <code> SpawnEntity</code> method let&#39;s the SDF library handle the URDF conversion.</li>
+        <li>But this may cause a problem if your bot contains meshes.</li>
+        <li>It is possible that your meshes might not spawn when you spawn your bot.</li>
+        <li>This is because an urdf model has <code> package://</code> but the <code> sdf::readString</code> method transforms the <code> package://</code> urls into <code> model://</code> so they can be resolved by Gazebo.</li>
+        <li>Hence, one of the ways to resolve this issue would be to convert your urdf file into a sdf file.</li>
+        <li>This can be done by using the command, <code> gz sdf -p file_name.urdf > file_name.sdf</code>.</li>
+        <li>Sometimes, even after converting into a SDF file, the meshes might not spawn.</li>
+        <li>In such a case, try removing <code> model://package_name</code> from the uri and just keep the portion <code> meshes/part_name.STL</code></li>
+    </ul>
+    <h2 id="what-are-launch-files">What are launch files</h2>
+    <ul>
+        <li>Launch files provide a convenient way to start up multiple nodes. </li>
+        <li>They also let us define different parameters like the coordinates where we want to spawn the bot. </li>
+        <li>They basically help us launch multiple things through a single file itself which saves us a lot of time and efforts.</li>
+    </ul>
+    <h3 id="ROS-2-launch-files">ROS 2 launch files</h3>
+    <ul>
+        <li>The launch files in ROS are mainly written in XML whereas those in ROS 2 are mainly written in python.</li>
+        <li>I will explain about launch files with the help of code snippets from my launch file.</li>
+        <li>My launch file launches Gazebo, my robot and my world all together.</li>
+        <li>In the launch file, first we import all our dependencies and then create a function.</li>
+        <li>Inside the function, we describe variables and assign them all the paths of the files we aim to launch.</li>
+    </ul>
+    <pre style="width: 800px;"><code class="language-python">        
+          def generate_launch_description():
+            model_path = GazeboRosPaths.get_paths()
+
+            env = {
+                &quot;GAZEBO_MODEL_PATH&quot;: model_path,
+            }
+
+            sdf_prefix = get_package_share_directory(&quot;my_bot&quot;)
+            sdf_file = os.path.join(sdf_prefix, &quot;urdf&quot;, &quot;walle.sdf&quot;)
+
+            world_prefix = get_package_share_directory(&quot;my_bot&quot;)
+            world_file = os.path.join(world_prefix, &quot;worlds&quot;, &quot;sra.world&quot;)
+    
+            rviz_config_prefix = get_package_share_directory(&quot;my_bot&quot;)
+            rviz_config_path = os.path.join(rviz_config_prefix, &#39;rviz/urdf_config.rviz&#39;)
+
+</code></pre>
+    <ul>
+        <li>Our launch file must return a launch description object. Through the return object, we launch all the things we want to.</li>
+    </ul>
+    <pre style="width: 600px;"><code class="language-python">      
+      return LaunchDescription(
+        [
+            ExecuteProcess(
+                cmd=[
+                    &quot;gazebo&quot;,
+                    &quot;-s&quot;,
+                    &quot;libgazebo_ros_init.so&quot;,
+                    &quot;-s&quot;,
+                    &quot;libgazebo_ros_factory.so&quot;,
+                     world_file,
+                ],
+                output=&quot;screen&quot;,
+                additional_env=env,
+            ),
+            Node(
+                package=&quot;gazebo_ros&quot;,
+                node_executable=&quot;spawn_entity.py&quot;,
+                arguments=[
+                    &quot;-entity&quot;,
+                    &quot;walle&quot;,
+                    &quot;-x&quot;,
+                    &quot;-1&quot;,
+                    &quot;-y&quot;,
+                    &quot;0&quot;,
+                    &quot;-z&quot;,
+                    &quot;.41&quot;,
+                    &quot;-b&quot;,
+                    &quot;-file&quot;,
+                    sdf_file,
+                ],
+            ),
+            Node(
+                package=&quot;robot_state_publisher&quot;,
+                node_executable=&quot;robot_state_publisher&quot;,
+                output=&quot;screen&quot;,
+                arguments=[sdf_file],
+            ),
+            Node(
+            package=&#39;rviz2&#39;,
+            executable=&#39;rviz2&#39;,
+            name=&#39;rviz2&#39;,
+            output=&quot;screen&quot;,
+            arguments=[rviz_config_path],
+    )
+        ]
+    )
+
+</code></pre>
+    <h2 id="conclusion">Conclusion</h2>
+    <p>I hope you all have learnt something new from this blog and I encourage you all to try and create your own worlds in Gazebo using this method and launch your robots and worlds by creating your own launch files. Here is the link to my <a href="https://github.com/Aryaman22102002/Wall-e-simulation-ros2">github repository</a>        so that you can go through the code and try it for yourselves.</p>
+
+</body>
+
+</html>
