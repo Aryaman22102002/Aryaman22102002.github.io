@@ -210,12 +210,15 @@ img {
   }
 }
 
+.nav-alg{
+display: inline-block;
+}
+
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
   font-size: 18px;
-  display: inline-block;
   
   @include mobile {
     float: none;
