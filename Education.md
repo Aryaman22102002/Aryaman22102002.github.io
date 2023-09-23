@@ -27,7 +27,6 @@ permalink: /education/
 
 <center>
 <b style="font-size:30px"> Veermata Jijabai Technological Institute</b> 
-</center>
 <br>
 <b> Location:</b> Mumbai, India
 <br>
@@ -36,6 +35,7 @@ permalink: /education/
 <b> Duration:</b> 2020 - 2024
 <br>
 <b> Current CGPA:</b> 8.25/10
+</center>
 </div>
 
 <br>
@@ -48,14 +48,14 @@ permalink: /education/
 
 <center>
 <b style="font-size:30px"> Prakash College of Commerce and Science </b> 
-</center>
+
 <br>
 <b> Location:</b> Mumbai, India
 <br>
+<b> Duration:</b> 2018 - 2020<br>
 Secured Distinction (91.54%) in Higher Secondary Certificate Examination.<br>
 Secured 100 percentile, State rank 11 in the MHT-CET examination, a state entrance examination for engineering majors in PCM.
-<br>
-<b> Duration:</b> 2018 - 2020
+</center>
 </div>
 <br>
 <br>
@@ -67,13 +67,12 @@ Secured 100 percentile, State rank 11 in the MHT-CET examination, a state entran
 
 <center>
 <b style="font-size:30px"> Rustomjee International School and Junior College</b> 
-</center>
 <br>
 <b> Location:</b> Mumbai, India
 <br>
-Secured Distinction (94.80%) in Secondary School Certificate Examination.<br>
-<br>
-<b> Duration:</b> 2008 - 2018
+<b> Duration:</b> 2008 - 2018<br>
+Secured Distinction (94.80%) in Secondary School Certificate Examination.
+</center>
 </div>
 
 
