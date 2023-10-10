@@ -54,7 +54,7 @@ permalink: /education/
 <br>
 <b> Duration:</b> 2018 - 2020<br>
 Secured Distinction (91.54%) in Higher Secondary Certificate Examination.<br>
-Secured 100 percentile, State rank 11 in the MHT-CET examination, a state entrance examination for engineering majors in PCM.
+Secured 100 percentile, State rank 11 out of 152,000 students in the MHT-CET examination, a state entrance examination for engineering majors in PCM.
 </center>
 </div>
 <br>
