@@ -74,6 +74,7 @@ button:before{
 <center>
 <b style="font-size:30px"> Neural Networks and Deep Learning </b> 
 <br>
+<br>
 <b> Issuing Organization:</b> Coursera <br>
 <b> Date of Issue:</b> December 2021
 </center>
@@ -97,6 +98,7 @@ button:before{
 <center>
 <b style="font-size:30px"> Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization </b> 
 <br>
+<br>
 <b> Issuing Organization:</b> Coursera <br>
 <b> Date of Issue:</b> December 2021
 </center>
@@ -118,6 +120,7 @@ button:before{
 <div id="bordering">
 <center>
 <b style="font-size:30px"> Structuring Machine Learning Projects </b> 
+<br>
 <br>
 <b> Issuing Organization:</b> Coursera <br>
 <b> Date of Issue:</b> January 2022
@@ -141,6 +144,7 @@ button:before{
 <center>
 <b style="font-size:30px"> Convolutional Neural Networks </b> 
 <br>
+<br>
 <b> Issuing Organization:</b> Coursera <br>
 <b> Date of Issue:</b> March 2022
 </center>
@@ -162,6 +166,7 @@ button:before{
 <div id="bordering">
 <center>
 <b style="font-size:30px"> Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning </b> 
+<br>
 <br>
 <b> Issuing Organization:</b> Coursera <br>
 <b> Date of Issue:</b> October 2022
@@ -185,6 +190,7 @@ button:before{
 <div id="bordering">
 <center>
 <b style="font-size:30px"> Introduction to Self-Driving Cars </b> 
+<br>
 <br>
 <b> Issuing Organization:</b> Coursera <br>
 <b> Date of Issue:</b> June 2023
