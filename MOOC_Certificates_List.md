@@ -75,8 +75,8 @@ button:before{
 <b style="font-size:30px"> Neural Networks and Deep Learning </b> 
 </center>
 <br>
-</b> Issuing Organization:</b> Coursera <br>
-</b> Date of Issue:</b> December 2021
+<b> Issuing Organization:</b> Coursera <br>
+<b> Date of Issue:</b> December 2021
 <br>
 <br>
 <div id="frozen-btn">
@@ -98,8 +98,8 @@ button:before{
 <b style="font-size:30px"> Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization </b> 
 </center>
 <br>
-</b> Issuing Organization:</b> Coursera <br>
-</b> Date of Issue:</b> December 2021
+<b> Issuing Organization:</b> Coursera <br>
+<b> Date of Issue:</b> December 2021
 <br>
 <br>
 <div id="frozen-btn">
@@ -120,8 +120,8 @@ button:before{
 <b style="font-size:30px"> Structuring Machine Learning Projects </b> 
 </center>
 <br>
-</b> Issuing Organization:</b> Coursera <br>
-</b> Date of Issue:</b> January 2022
+<b> Issuing Organization:</b> Coursera <br>
+<b> Date of Issue:</b> January 2022
 <br>
 <br>
 <div id="frozen-btn">
@@ -142,8 +142,8 @@ button:before{
 <b style="font-size:30px"> Convolutional Neural Networks </b> 
 </center>
 <br>
-</b> Issuing Organization:</b> Coursera <br>
-</b> Date of Issue:</b> March 2022
+<b> Issuing Organization:</b> Coursera <br>
+<b> Date of Issue:</b> March 2022
 <br>
 <br>
 <div id="frozen-btn">
@@ -161,15 +161,11 @@ button:before{
 
 <div id="bordering">
 <center>
-<img title="street_racer" alt="Alt text" src="/images/race.png">
-</center>
-
-<center>
 <b style="font-size:30px"> Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning </b> 
 </center>
 <br>
-</b> Issuing Organization:</b> Coursera <br>
-</b> Date of Issue:</b> October 2022
+<b> Issuing Organization:</b> Coursera <br>
+<b> Date of Issue:</b> October 2022
 <br>
 <br>
 <div id="frozen-btn">
@@ -188,15 +184,11 @@ button:before{
 
 <div id="bordering">
 <center>
-<img title="Wall-E-Sim" alt="Alt text" src="/images/Wall-E-Sim.jpg">
-</center>
-
-<center>
 <b style="font-size:30px"> Introduction to Self-Driving Cars </b> 
 </center>
 <br>
-</b> Issuing Organization:</b> Coursera <br>
-</b> Date of Issue:</b> June 2023
+<b> Issuing Organization:</b> Coursera <br>
+<b> Date of Issue:</b> June 2023
 <br>
 <br>
 <div id="frozen-btn">
