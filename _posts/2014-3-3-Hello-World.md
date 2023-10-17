@@ -18,3 +18,5 @@ Apart from academics, I was the Software Head of the Society of Robotics and Aut
 <br>
 I am currently working as a research intern at Multi-Robot Autonomy Lab at IISER Bhopal.
 
+
+
