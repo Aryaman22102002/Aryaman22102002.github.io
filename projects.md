@@ -79,7 +79,7 @@ button:before{
 <b style="font-size:30px"> Eyantra Robotics Competition, Theme: Dairy Bike</b> 
 </center>
 <br>
-Secured 3rd place in the Eyantra Robotics Competition. Developed a two wheeled bike which uses Linear Quadratic Regulator (LQR) to balance itself. Used State-Space equations and Euler Lagrange method to mathematically model the bike. Designed a custom 4-DOF arm to pick and place the dairy products. Navigated the bike through the arena overcoming various obstacles placed at different points in the entire arena.
+Secured 3rd place in the Eyantra Robotics Competition 2021 - 2022. Developed a two wheeled bike which uses Linear Quadratic Regulator (LQR) to balance itself. Used State-Space equations and Euler Lagrange method to mathematically model the bike. Designed a custom 4-DOF arm to pick and place the dairy products. Navigated the bike through the arena overcoming various obstacles placed at different points in the entire arena.
 <br>
 <br>
 
@@ -161,7 +161,7 @@ Implemented an obstacle avoidance algorithm on a differential drive robot and si
 <b style="font-size:30px"> Rapidly Exploring Random Trees (RRT) Algorithm </b> 
 </center>
 <br>
-Implemented the Rapidly Exploring Random Trees (RRT) Algorithm from scratch using Object-Oriented Programming (OOPs) in Python. Created a simulation to visualize the working of the algorithm using Matplotlib. Also, made some of the parameters dynamic, such as having random start and goal positions each time, and taking the number of obstacles as input from the user within a specific range.
+Implemented the Rapidly Exploring Random Trees (RRT) Algorithm from scratch using Object-Oriented Programming (OOPs) in Python. Created a simulation to visualize the working of the algorithm using Matplotlib. Made some of the parameters dynamic, such as having random start and goal positions each time, and taking the number of obstacles as input from the user within a specific range. Also, devised some parameters, such as the number of iterations required, the number of final waypoints needed, and the total distance traversed, to evaluate the performance of the algorithm.
 <br>
 <br>
 <div id="frozen-btn">
