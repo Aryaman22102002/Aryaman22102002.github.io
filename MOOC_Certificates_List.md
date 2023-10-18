@@ -69,6 +69,7 @@ button:before{
 
 <br>
 
+<center>
 <div id="bordering">
 
 <center>
@@ -206,3 +207,4 @@ button:before{
 </div>
 <br>
 </div>
+</center>

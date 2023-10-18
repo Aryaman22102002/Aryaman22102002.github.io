@@ -3,7 +3,9 @@ layout: post
 title: About Me
 ---
 
+<center>
 <img title="Aryaman" alt="Alt text" src="/images/Aryaman.jpeg" style="height:560px; width:440px;">
+</center>
 
 <br>
 

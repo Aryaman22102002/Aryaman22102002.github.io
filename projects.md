@@ -69,6 +69,7 @@ button:before{
 
 <br>
 
+<center>
 <div id="bordering">
 <center>
 <img title="Dairy Bike" alt="Alt text" src="/images/db.png">
@@ -249,6 +250,7 @@ Designed a Printed Circuit Board (PCB) for Line Sensor Array (LSA). It was a bas
 </div>
 <br>
 </div>
+</center>
 
 
 

@@ -20,7 +20,7 @@ permalink: /work_experience/
 
 <br>
 
-
+<center>
 <div id ="bordering">
 <br>
 <center>
@@ -89,4 +89,5 @@ permalink: /work_experience/
     <li> Currently writing a research paper on it. </li>
 </ul> 
 </div>
+</center>
 
