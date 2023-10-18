@@ -19,7 +19,7 @@ permalink: /education/
 </html>
 
 <br>
-
+<center>
 <div id="bordering">
 <center>
 <img title="Veermata Jijabai Technological Institute" alt="Alt text" src="/images/vjti.jpg">
@@ -74,6 +74,7 @@ Secured 100 percentile, State rank 11 out of 152,000 students in the MHT-CET exa
 Secured Distinction (94.80%) in Secondary School Certificate Examination.
 </center>
 </div>
+</center>
 
 
 
