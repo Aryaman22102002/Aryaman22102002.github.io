@@ -14,6 +14,9 @@ permalink: /work_experience/
   border: 5px solid red;
   margin: 0;
 }
+#left{
+ text-align: left;
+}
 </style>
 </head>
 </html>
@@ -37,7 +40,7 @@ permalink: /work_experience/
 <center>
 <b style="font-size:20px"> Project Title: Prota: The ROS Bot </b>
 </center>
-<ul>
+<ul id="left">
     <li> Worked as an intern at the e-Yantra Lab at IIT Bombay for two months in a team on a project called "Prota: The ROS Bot", that aimed to create an efficient and modular design of an Unmanned Autonomous Ground Vehicle from scratch. </li>
     <li> Created the new design of the bot in CAD and replicated it in hardware, and assembled the hardware bot. </li>
     <li> Tested and worked with various sensors like RPLidar, MPU9250, Time of Flight sensors (VL53L0X), Intel Realsense D435i depth camera, etc, as well as used Raspberry Pi, Arduino and ESP32. </li>
@@ -80,7 +83,7 @@ permalink: /work_experience/
 <center>
 <b style="font-size:20px"> Project Title: MPC-based UAV Path Planning Algorithm With CFD-Based Wind Field Estimation. </b>
 </center>
-<ul>
+<ul id="left">
     <li> Currently working as a research intern at the Multi-Robot Autonomy Lab at IISER Bhopal under the guidance of Dr. P. B. Sujit and Dr. Manoj Kumar Tripathi. </li>
     <li> Studied the shortcomings of traditional Model Predictive Control (MPC) planners that assume the flow of the wind field in the environment to be constant, and designed a new MPC planner for the Unmanned Aerial Vehicle (UAV), which takes into account the dynamic nature of the wind field. </li>
     <li> Utilized MATLAB and CasADi to write code for the MPC planner and simulate the trajectory of the UAV from a start point to a goal point, against different numbers of obstacles in it’s path, and under the influence of a constantly changing wind field. </li>
