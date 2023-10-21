@@ -63,6 +63,9 @@ button:before{
   border: 5px solid red;
   margin: 0;
 }
+#left{
+ text-align: left;
+}
 </style>
 </head>
 </html>
