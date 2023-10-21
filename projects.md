@@ -63,6 +63,9 @@ button:before{
   border: 5px solid red;
   margin: 0;
 }
+#left{
+ text-align: left;
+}
 </style>
 </head>
 </html>
@@ -79,7 +82,9 @@ button:before{
 <b style="font-size:30px"> Eyantra Robotics Competition, Theme: Dairy Bike</b> 
 </center>
 <br>
+<div id="left">
 Secured 3rd place in the Eyantra Robotics Competition 2021 - 2022. Developed a two wheeled bike which uses Linear Quadratic Regulator (LQR) to balance itself. Used State-Space equations and Euler Lagrange method to mathematically model the bike. Designed a custom 4-DOF arm to pick and place the dairy products. Navigated the bike through the arena overcoming various obstacles placed at different points in the entire arena.
+</div>
 <br>
 <br>
 
@@ -111,7 +116,9 @@ Secured 3rd place in the Eyantra Robotics Competition 2021 - 2022. Developed a t
 <b style="font-size:30px"> Wall-e-simulation-ros2 </b> 
 </center>
 <br>
+<div id="left">
 Designed a two-wheeled robot and wrote self-balancing and line-following algorithms for it using Propotional Integral Derivative (PID) controller. Solidworks was used to design the robot. Used ROS 2 Foxy and Gazebo to simulate it.
+</div>
 <br>
 <br>
 <div id="frozen-btn">
@@ -136,7 +143,9 @@ Designed a two-wheeled robot and wrote self-balancing and line-following algorit
 <b style="font-size:30px"> Obstacle Avoidance </b> 
 </center>
 <br>
+<div id="left">
 Implemented an obstacle avoidance algorithm on a differential drive robot and simulated it using ROS Noetic and Gazebo.
+</div>
 <br>
 <br>
 <div id="frozen-btn">
@@ -161,7 +170,9 @@ Implemented an obstacle avoidance algorithm on a differential drive robot and si
 <b style="font-size:30px"> Rapidly Exploring Random Trees (RRT) Algorithm </b> 
 </center>
 <br>
+<div id="left">
 Implemented the Rapidly Exploring Random Trees (RRT) Algorithm from scratch using Object-Oriented Programming (OOPs) in Python. Created a simulation to visualize the working of the algorithm using Matplotlib. Made some of the parameters dynamic, such as having random start and goal positions each time, and taking the number of obstacles as input from the user within a specific range. Also, devised some parameters, such as the number of iterations required, the number of final waypoints needed, and the total distance traversed, to evaluate the performance of the algorithm.
+</div>
 <br>
 <br>
 <div id="frozen-btn">
@@ -186,7 +197,9 @@ Implemented the Rapidly Exploring Random Trees (RRT) Algorithm from scratch usin
 <b style="font-size:30px"> Street-Racer-2D </b> 
 </center>
 <br>
+<div id="left">
 Made a gesture controlled 2D car racing game using phaser.js and OpenCV.
+</div>
 <br>
 <br>
 <div id="frozen-btn">
@@ -212,7 +225,9 @@ Made a gesture controlled 2D car racing game using phaser.js and OpenCV.
 <b style="font-size:30px"> Wall-E-Sim </b> 
 </center>
 <br>
+<div id="left">
 Contributed to enhancing the existing simulations in this repository as well as creating the new self-balancing task. These CoppeliaSim simulations are used as assignments to teach first-year students various concepts like Proportional Integral Derivative (PID) controller tuning, line-following, self-balancing, and maze-solving, as a part of the WallE workshop conducted by the members of the Society Of Robotics And Automation (SRA), VJTI. 
+</div>
 <br>
 <br>
 <div id="frozen-btn">
@@ -238,7 +253,9 @@ Contributed to enhancing the existing simulations in this repository as well as 
 <b style="font-size:30px"> PCB Design LSA </b> 
 </center>
 <br>
+<div id="left">
 Designed a Printed Circuit Board (PCB) for Line Sensor Array (LSA). It was a basic assignment to get familiar with PCB Designing and KiCAD.
+</div>
 <br>
 <br>
 <div id="frozen-btn">
