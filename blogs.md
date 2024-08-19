@@ -25,5 +25,5 @@ permalink: /blogs/
 
 ### Blog 4 
 
-<a href="/Blogs/LQR.pdf" target="_blank"> <b> Designing an LQR controller for balancing a two-wheeled bike </b> </a>4
+<a href="/Blogs/LQR.pdf" target="_blank"> <b> Designing an LQR controller for balancing a two-wheeled bike </b> </a>
 
