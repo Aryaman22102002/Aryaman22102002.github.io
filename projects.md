@@ -132,6 +132,31 @@ Designed a two-wheeled robot and wrote self-balancing and line-following algorit
 
 <div id="bordering">
 <center>
+<img title="OptiDepth" alt="Alt text" src="/images/OptiDepth.jpg">
+</center>
+
+<center>
+<b style="font-size:30px"> OptiDepth </b> 
+</center>
+<br>
+Performed accelerated depth estimation on reflective and transparent surfaces through quantization optimization.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/KunalA18/OptiDepth" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+<div id="bordering">
+<center>
 <img title="obstacle_avoidance" alt="Alt text" src="/images/obs_avd.png">
 </center>
 
