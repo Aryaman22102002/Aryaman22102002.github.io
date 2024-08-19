@@ -34,7 +34,7 @@ permalink: /education/
 <br>
 <b> Duration:</b> 2020 - 2024
 <br>
-<b> Current CGPA:</b> 8.25/10
+<b> Current CGPA:</b> 8.14/10
 </center>
 </div>
 
