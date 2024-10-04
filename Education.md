@@ -22,6 +22,29 @@ permalink: /education/
 <center>
 <div id="bordering">
 <center>
+<img title="Northeastern University" alt="Alt text" src="/images/Northeastern_seal.svg.png">
+</center>
+
+<center>
+<b style="font-size:30px"> Northeastern University </b> 
+<br>
+<b> Location:</b> Boston, Massachusetts
+<br>
+<b> Degree:</b> Master's in Robotics
+<br>
+<b> Duration:</b> 2024 - 2026
+<br>
+</center>
+</div>
+
+<br>
+<br>
+
+
+<br>
+<center>
+<div id="bordering">
+<center>
 <img title="Veermata Jijabai Technological Institute" alt="Alt text" src="/images/vjti.jpg">
 </center>
 
