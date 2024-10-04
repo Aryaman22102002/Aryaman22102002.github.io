@@ -23,13 +23,14 @@ permalink: /work_experience/
 
 <br>
 
-<center>
+
+
+
 <div id ="bordering">
 <br>
 <center>
-<img title="eYSIP" alt="Alt text" src="/images/eysip.jpeg">
+<img title="iiserb" alt="Alt text" src="/images/iiserb.jpg">
 </center>
-
 
 <br>
 <br>
@@ -65,9 +66,18 @@ permalink: /work_experience/
 </center>
 
 
+
 <br>
 <br>
 
+<center>
+<div id ="bordering">
+<br>
+<center>
+<img title="eYSIP" alt="Alt text" src="/images/eysip.jpeg">
+</center>
+<br>
+<br>
 <center>
 <b style="font-size:30px"> Summer Research Intern at Embedded Real-Time Systems Laboratory (ERTS/e-Yantra Lab), IIT Bombay, Mumbai, India </b> 
 </center>
@@ -89,13 +99,7 @@ permalink: /work_experience/
 </center>
 </div>
 
-<br><br>
 
 
-<div id ="bordering">
-<br>
-<center>
-<img title="iiserb" alt="Alt text" src="/images/iiserb.jpg">
-</center>
 
 
