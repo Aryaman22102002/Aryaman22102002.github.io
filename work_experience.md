@@ -25,16 +25,14 @@ permalink: /work_experience/
 
 
 
-
+<center>
 <div id ="bordering">
 <br>
 <center>
 <img title="iiserb" alt="Alt text" src="/images/iiserb.jpg">
 </center>
-
 <br>
 <br>
-
 <center>
 <b style="font-size:30px">  Research Intern at Multi-Robot Autonomy (MOON) Lab, IISER Bhopal, Mumbai, India </b>
 </center>
@@ -54,7 +52,6 @@ permalink: /work_experience/
 <b style="font-size:20px"> Project Title: MPC-based UAV Path Planning Algorithm With CFD-Based Wind Field Estimation. </b><br>
 <b style="font-size:20px"> Project Duration: January 2023 - March 2024 </b>
 </center>
-<center>
 <ul id="left">
     <li> Worked as a research intern at the Multi-Robot Autonomy Lab at IISER Bhopal under the guidance of Dr. P. B. Sujit and Dr. Manoj Kumar Tripathi. </li>
     <li> Studied the shortcomings of traditional Model Predictive Control (MPC) planners that assume the flow of the wind field in the environment to be constant, and designed a new MPC planner for the Unmanned Aerial Vehicle (UAV), which takes into account the dynamic nature of the wind field. </li>
@@ -64,8 +61,6 @@ permalink: /work_experience/
     <li> Drafted a research paper on this project preparing to submit it to a journal.</li> 
 </ul> 
 </div>
-</center>
-
 
 
 <br>
