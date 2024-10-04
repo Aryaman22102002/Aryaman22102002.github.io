@@ -22,7 +22,7 @@ permalink: /education/
 <center>
 <div id="bordering">
 <center>
-<img title="Northeastern University" alt="Alt text" src="/images/Northeastern_seal.svg.png" width="300" height="300">
+<img title="Northeastern University" alt="Alt text" src="/images/Northeastern_seal.svg.png" width="200" height="200">
 </center>
 
 <center>
