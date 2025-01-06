@@ -34,6 +34,7 @@ permalink: /education/
 <br>
 <b> Duration:</b> 2024 - 2026
 <br>
+<b> GPA:</b> 3.852/10.000
 </center>
 </div>
 
@@ -57,7 +58,7 @@ permalink: /education/
 <br>
 <b> Duration:</b> 2020 - 2024
 <br>
-<b> Current CGPA:</b> 8.14/10
+<b> CGPA:</b> 8.14/10.00
 </center>
 </div>
 
