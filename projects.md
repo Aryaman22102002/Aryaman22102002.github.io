@@ -73,6 +73,85 @@ button:before{
 <br>
 
 <center>
+
+<div id="bordering">
+<center>
+<img title="Sensor Fusion Of GPS And IMU Data For Automotive Dead Reckoning" alt="Alt text" src="/images/NUANCE.jpg">
+</center>
+
+<center>
+<b style="font-size:30px"> Sensor Fusion Of GPS And IMU Data For Automotive Dead Reckoning</b> 
+</center>
+<br>
+Created custom ROS 2 messages and drivers for GPS and IMU sensors and collected data using the NUANCE autonomous car provided by Northeastern University. Analyzed the IMU's noise characteristics through Allan Variance and calibrated magnetometer by correcting hard and soft iron distortions and error compensation in IMU and GPS data. Compensated for accelerometer bias to estimate the vehicle’s forward velocity, and fused the yaw angle computed from the gyroscope and magnetometer data using a complementary filter to estimate heading for Dead Reckoning with IMU.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Aryaman22102002/Sensor_Fusion_of_GPS_and_IMU_Data_for_Automotive_Dead_Reckoning" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+<div id="bordering">
+<center>
+<img title="FAST-LIO Loop Closure Test On NUANCE" alt="Alt text" src="/images/LIO_SAM.png">
+</center>
+
+<center>
+<b style="font-size:30px"> FAST-LIO Loop Closure Test On NUANCE</b> 
+</center>
+<br>
+Collected data in NUANCE autonomous car using the Ouster 3D lidar, VectorNav (VN-100) IMU, and GPS sensors while driving around the streets of Boston. Tested FAST-LIO, FAST-LIO LC, and LIO-SAM on standard datasets as well as on our data, displayed the results for FAST-LIO and FAST-LIO LC, and highlighted challenges faced in LIO-SAM. Compared the results obtained from FAST-LIO and FAST-LIO LC to highlight the advantages of Loop Closure in SLAM algorithms. 
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Aryaman22102002/FAST_LIO_Loop_Closure_Test_On_NUANCE" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+
+<div id="bordering">
+<center>
+<img title="Pick and Place Using PincherX100 Robot Manipulator" alt="Alt text" src="/images/PincherX100.png">
+</center>
+
+<center>
+<b style="font-size:30px"> Pick and Place Using PincherX100 Robot Manipulator</b> 
+</center>
+<br>
+Performed pick-and-place task for a cylindrical payload using the PincherX100 robot manipulator. Employed concepts such as forward kinematics and Inverse Kinematics and designed a Trajectory Planner for the end-effector of the arm. Implemented obstacle avoidance along with the normal pick-and-place function of the arm.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Aryaman22102002/PincherX100_Pick_and_Place" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+
+
 <div id="bordering">
 <center>
 <img title="Dairy Bike" alt="Alt text" src="/images/db.png">
