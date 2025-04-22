@@ -76,7 +76,7 @@ button:before{
 
 <div id="bordering">
 <center>
-<img title="bbs_scan_matching_cpu" alt="Alt text" src="/images/3d_bbs.jpg">
+<img title="bbs_scan_matching_cpu" alt="Alt text" src="/images/3d_bbs.png">
 </center>
 
 <center>
