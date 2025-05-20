@@ -99,6 +99,32 @@ As part of my EECE5550 Mobile Robotics course's project at Northeastern Universi
 <br>
 <br>
 
+
+<div id="bordering">
+<center>
+<img title="Cruise_Control_System" alt="Alt text" src="/images/Cruise_Control_System.jpg">
+</center>
+
+<center>
+<b style="font-size:30px"> Cruise_Control_System</b> 
+</center>
+<br>
+As part of our ME5659 Control Systems Course course's project at Northeastern University, we focused on designing and comparing three different controllers: PID, Lead-Lag, and LQR, for regulating the velocity of a Toyota Camry XLE under aerodynamic and rolling resistance forces. 
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Aryaman22102002/Cruise_Control_System" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
 <div id="bordering">
 <center>
 <img title="Sensor Fusion Of GPS And IMU Data For Automotive Dead Reckoning" alt="Alt text" src="/images/NUANCE.jpg">
