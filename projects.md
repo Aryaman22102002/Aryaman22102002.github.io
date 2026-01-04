@@ -76,6 +76,63 @@ button:before{
 
 <div id="bordering">
 <center>
+<img title="Camera Lidar Temporal Calibration" alt="Alt text" src="/images/Camera_Lidar_Temporal_Calibration.png">
+</center>
+
+<center>
+<b style="font-size:30px"> Camera Lidar Temporal Calibration</b> 
+</center>
+<br>
+As part of my EECE7150 Autonomous Field Robotics course's project at Northeastern University, I developed a camera–LiDAR temporal calibration method based on geometric and visual edge alignment across sensors. Additionaly, I estimated sub-frame time offsets via robust optimization and validated alignment using LiDAR-to-image projection overlays.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/rituraj-navindgikar/camera-lidar-calibration" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+
+
+<center>
+
+<div id="bordering">
+<center>
+<img title="3D Reconstruction Using Structure-from-Motion" alt="Alt text" src="/images/3D_Reconstruction_Using_Sfm.png">
+</center>
+
+<center>
+<b style="font-size:30px"> 3D Reconstruction Using Structure-from-Motion</b> 
+</center>
+<br>
+As part of my EECE7150 Autonomous Field Robotics course's project at Northeastern University, I developed an end-to-end Structure-from-Motion pipeline from scratch to estimate camera poses and reconstruct sparse 3D structure from multi-view images. I aslo applied global bundle adjustment with GTSAM to significantly reduce reprojection error and improve trajectory consistency.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Aryaman22102002/3D_Reconstruction_Using_Sfm" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+
+<center>
+
+<div id="bordering">
+<center>
 <img title="bbs_scan_matching_cpu" alt="Alt text" src="/images/3d_bbs.png">
 </center>
 
