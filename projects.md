@@ -137,7 +137,7 @@ As part of my EECE7150 Autonomous Field Robotics course's project at Northeaster
 </center>
 
 <center>
-<b style="font-size:30px"> bbs_scan_matching_cpu</b> 
+<b style="font-size:30px"> BBS Scan Matching Cpu</b> 
 </center>
 <br>
 As part of my EECE5550 Mobile Robotics course's project at Northeastern University, I reproduced a simplified, CPU-only version of the implementation of the 3D-BBS (Branch-and-Bound Scan Matching) algorithm for global localization using LiDAR data. This project aligns 3D LiDAR scans to a voxelized map by exhaustively searching a 4D pose space (x, y, z, yaw) and scoring candidates using voxel occupancy overlap. This algorithm was originally proposed in the 3D-BBS: Global Localization for 3D Point Cloud Scan Matching Using Branch-and-Bound paper.
@@ -163,7 +163,7 @@ As part of my EECE5550 Mobile Robotics course's project at Northeastern Universi
 </center>
 
 <center>
-<b style="font-size:30px"> Cruise_Control_System</b> 
+<b style="font-size:30px"> Cruise Control System</b> 
 </center>
 <br>
 As part of our ME5659 Control Systems Course course's project at Northeastern University, we focused on designing and comparing three different controllers: PID, Lead-Lag, and LQR, for regulating the velocity of a Toyota Camry XLE under aerodynamic and rolling resistance forces. 
