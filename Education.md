@@ -60,7 +60,6 @@ permalink: /education/
 <b> CGPA:</b> 8.14/10.00
 </center>
 </div>
-
 <br>
 <br>
 
