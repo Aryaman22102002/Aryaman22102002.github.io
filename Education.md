@@ -41,7 +41,6 @@ permalink: /education/
 <br>
 <br>
 
-
 <br>
 <center>
 <div id="bordering">
