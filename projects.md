@@ -77,7 +77,7 @@ button:before{
 
 <div id="bordering">
 <center>
-<img title="POMDP Navigation in MiniGrid" alt="Alt text" src="/images/pomdp.png">
+<img title="POMDP Navigation in MiniGrid" alt="Alt text" src="/images/pomdp.jpg">
 </center>
 
 <center>
