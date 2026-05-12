@@ -96,7 +96,6 @@ permalink: /work_experience/
 </center>
 <ul id="left">
     <li> Developed Prota: The ROS Bot as part of the e-Yantra Summer Internship, a low-cost open-source educational autonomous ground vehicle designed to teach ROS, SLAM, and navigation from the ground up. </li>
-    <li> Designed the full mechanical and electrical system: created a modular CAD model in Fusion 360, fabricated the chassis, and designed a custom PCB housing an ESP32 WROOM 32 daughterboard with MPU9250 9-axis IMU, 6x Time-of-Flight sensors, and a TFT display. </li>
     <li> Integrated LiDAR, IMU, optical encoders, depth camera, and proximity sensors on a Raspberry Pi; calibrated and synchronized all sensor streams for reliable odometry and localization in a GPS-denied environment. </li>
     <li> Deployed GMapping and Hector SLAM, used AMCL for localization and ROS move_base for autonomous navigation; validated the full navigation stack first in Gazebo/RViz simulation and then on physical hardware. </li>
 </ul>
