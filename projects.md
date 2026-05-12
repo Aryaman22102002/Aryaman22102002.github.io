@@ -72,6 +72,35 @@ button:before{
 
 <br>
 
+
+<center>
+
+<div id="bordering">
+<center>
+<img title="POMDP Navigation in MiniGrid" alt="Alt text" src="/images/pomdp.png">
+</center>
+
+<center>
+<b style="font-size:30px"> POMDP Navigation in MiniGrid</b> 
+</center>
+<br>
+Compared online POMDP planning (POMCP) against recurrent deep RL methods (PPO and A2C with LSTM) for partially observable navigation across 5 MiniGrid environments of increasing complexity. Recurrent PPO solved all environments including a 6-room layout while POMCP degraded on larger tasks due to exponential belief space growth. Identified LSTM memory, exploration bonuses, and correct action space design as jointly necessary for success in multi-room POMDPs.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Sairamzz/RL_MiniGrid/tree/main" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+
 <center>
 
 <div id="bordering">
