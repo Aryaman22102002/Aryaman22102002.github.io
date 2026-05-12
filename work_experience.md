@@ -36,7 +36,7 @@ permalink: /work_experience/
 </center>
 <br>
 <center>
-<b style="font-size:20px"> Thesis Title: Agile Flight of a Morphing Robot Using Posture Manipulation and Thrust Vectoring </b><br>
+<b style="font-size:20px"> Thesis Title: Agile Flight of a Morphing Robot Using Posture Manipulation and Thrust Vectoring</b><br>
 <b style="font-size:20px"> Duration: May 2025 - Present </b>
 </center>
 <ul id="left">
