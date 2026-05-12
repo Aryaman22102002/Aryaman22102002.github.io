@@ -27,7 +27,7 @@ permalink: /work_experience/
 <div id ="bordering">
 <br>
 <center>
-<img title="siliconsynapse_lab" alt="Alt text" src="/images/siliconsynapse.png">
+<img title="siliconsynapselab" alt="Alt text" src="/images/siliconsynapse.png">
 </center>
 <br>
 <br>
@@ -55,7 +55,7 @@ permalink: /work_experience/
 <div id ="bordering">
 <br>
 <center>
-<img title="moon_lab" alt="Alt text" src="/images/moon_lab.jpeg">
+<img title="moonlab" alt="Alt text" src="/images/moon_lab.jpeg">
 </center>
 <br>
 <br>
