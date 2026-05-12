@@ -36,11 +36,11 @@ permalink: /work_experience/
 </center>
 <br>
 <center>
-<b style="font-size:20px"> Project Title: Hierarchical Control Framework for Agile Trajectory Tracking on the M4 Morphing Aerial Robot </b><br>
+<b style="font-size:20px"> Thesis Title: Agile Flight of a Morphing Robot Using Posture Manipulation and Thrust Vectoring </b><br>
 <b style="font-size:20px"> Project Duration: May 2025 - Present </b>
 </center>
 <ul id="left">
-    <li> Proposed a hierarchical control framework for agile trajectory tracking on the M4 Multi-Modal Mobility Morphobot (6 kg), a morphing aerial robot capable of transitioning between ground and aerial configurations, under the guidance of Prof. Alireza Ramezani. </li>
+    <li> Proposed a hierarchical control framework for agile trajectory tracking on the Multi-Modal Mobility Morphobot (M4) (6 kg), a morphing aerial robot capable of transitioning between ground and aerial configurations, under the guidance of Prof. Alireza Ramezani. </li>
     <li> Developed the NMPC trajectory optimizer using nonlinear optimization (CasADi/IPOPT), a QP-based real-time thrust allocator, and a thrust-to-PWM mapping pipeline for hardware deployment on a conventional quadrotor platform. </li>
     <li> Demonstrated in simulation that actively reconfiguring the robot's appendages across aerodynamic regimes to utilize posture manipulation and thrust vectoring outperforms fixed-geometry baselines in tracking error and thrust redistribution, enabling high-speed sharp turns of up to 120°. </li>
     <li> Validated QP-based real-time thrust allocation under active posture manipulation, demonstrating stable hover throughout randomized joint configuration changes. </li>
