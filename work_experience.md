@@ -55,7 +55,7 @@ permalink: /work_experience/
 <div id ="bordering">
 <br>
 <center>
-<img title="moonlab" alt="Alt text" src="/images/moon_lab.jpeg">
+<img title="moonlab" alt="Alt text" src="/images/moon_lab.png">
 </center>
 <br>
 <br>
