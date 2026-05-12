@@ -32,7 +32,7 @@ permalink: /work_experience/
 <br>
 <br>
 <center>
-<b style="font-size:30px"> Graduate Research Assistant (Master's Thesis) at Silicon Synapse Lab, Northeastern University, Boston, MA </b>
+<b style="font-size:30px"> Graduate Research Assistant (Master's Thesis) at the Silicon Synapse Lab, Northeastern University, Boston, MA </b>
 </center>
 <br>
 <center>
@@ -55,12 +55,12 @@ permalink: /work_experience/
 <div id ="bordering">
 <br>
 <center>
-<img title="iiserb" alt="Alt text" src="/images/iiserb.jpg">
+<img title="iiserb" alt="Alt text" src="/images/moon_lab.jpeg">
 </center>
 <br>
 <br>
 <center>
-<b style="font-size:30px"> Research Intern at Multi-Robot Autonomy (MOON) Lab, IISER Bhopal, Bhopal, India </b>
+<b style="font-size:30px"> Research Intern at the Multi-Robot Autonomy (MOON) Lab, IISER Bhopal, Bhopal, India </b>
 </center>
 <br>
 <center>
@@ -87,7 +87,7 @@ permalink: /work_experience/
 <br>
 <br>
 <center>
-<b style="font-size:30px"> Summer Research Intern at Embedded Real-Time Systems Laboratory (ERTS/e-Yantra Lab), IIT Bombay, Mumbai, India </b>
+<b style="font-size:30px"> Summer Research Intern at the Embedded Real-Time Systems Laboratory (ERTS/e-Yantra Lab), IIT Bombay, Mumbai, India </b>
 </center>
 <br>
 <center>
