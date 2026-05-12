@@ -4,7 +4,7 @@ title: About Me
 ---
 
 <center>
-<img title="Aryaman" alt="Alt text" src="/images/Landing_Page_Pic.jpg" style="height:560px; width:440px;">
+<img title="Aryaman" alt="Alt text" src="/images/Landing_Page_Pic.jpg";">
 </center>
 
 <br>
