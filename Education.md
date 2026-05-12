@@ -34,7 +34,7 @@ permalink: /education/
 <br>
 <b> Duration:</b> 2024 - 2026
 <br>
-<b> GPA:</b> 3.95/4
+<b> GPA:</b> 3.96/4
 </center>
 </div>
 
