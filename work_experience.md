@@ -46,6 +46,10 @@ permalink: /work_experience/
     <li> Validated QP-based real-time thrust allocation under active posture manipulation, demonstrating stable hover throughout randomized joint configuration changes. </li>
     <li> Performed bench-top motor-ESC characterization via frequency-domain system identification on a VOXL + ESC stack, estimating system parameters (gain K, time constant τ, delay L) from step and sinusoidal excitation using Nonlinear Least Squares and Bode analysis; validated by inverting the model into a force-to-PWM mapping. </li>
 </ul>
+<br>
+<center>
+<a href="https://www.researchgate.net/publication/404704424_Agile_Flight_of_a_Morphing_Robot_using_Posture_Manipulation_and_Thrust_Vectoring" target="_blank"> Link to My Thesis </a>
+</center>
 </div>
 
 <br>
