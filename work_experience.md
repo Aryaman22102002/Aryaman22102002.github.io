@@ -37,7 +37,7 @@ permalink: /work_experience/
 <br>
 <center>
 <b style="font-size:20px"> Thesis Title: Agile Flight of a Morphing Robot Using Posture Manipulation and Thrust Vectoring </b><br>
-<b style="font-size:20px"> Project Duration: May 2025 - Present </b>
+<b style="font-size:20px"> Duration: May 2025 - Present </b>
 </center>
 <ul id="left">
     <li> Proposed a hierarchical control framework for agile trajectory tracking on the Multi-Modal Mobility Morphobot (M4) (6 kg), a morphing aerial robot capable of transitioning between ground and aerial configurations, under the guidance of Prof. Alireza Ramezani. </li>
