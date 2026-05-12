@@ -82,7 +82,7 @@ permalink: /work_experience/
 <div id ="bordering">
 <br>
 <center>
-<img title="erts" alt="Alt text" src="/images/eysip.jpeg">
+<img title="eYSIP" alt="Alt text" src="/images/eysip.jpeg">
 </center>
 <br>
 <br>
