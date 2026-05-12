@@ -27,7 +27,7 @@ permalink: /work_experience/
 <div id ="bordering">
 <br>
 <center>
-<img title="siliconsynapse" alt="Alt text" src="/images/siliconsynapse.png">
+<img title="siliconsynapselab" alt="Alt text" src="/images/siliconsynapse.png">
 </center>
 <br>
 <br>
