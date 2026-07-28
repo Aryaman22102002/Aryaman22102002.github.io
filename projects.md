@@ -77,6 +77,33 @@ button:before{
 
 <div id="bordering">
 <center>
+<img title="Whole-Body Control Extension for Convex MPC Quadruped Locomotion" alt="Alt text" src="/images/wbc.png">
+</center>
+
+<center>
+<b style="font-size:30px"> Whole-Body Control Extension for Convex MPC Quadruped Locomotion</b> 
+</center>
+<br>
+Extended an existing convex MPC locomotion stack for the Unitree Go2 quadruped in MuJoCo with a custom whole-body contact-force controller. Formulated a QP over joint torques and contact forces using OSQP and Pinocchio, enforcing rigid-body dynamics, friction constraints, and torque limits, reducing friction cone violations from 92.5% to 0% on low-friction surfaces while solving in 1.3 ms against a 5 ms real-time budget. Currently extending this work into reinforcement learning, using imitation learning from the MPC controller's own reference trajectories to train a PPO policy for the quadruped's gait, having achieved a stable full-length walking gait, with multi-terrain generalization as the next step.
+<br>
+<br>
+<div id="frozen-btn">
+<center>
+   <a href="https://github.com/Aryaman22102002/go2-convex-mpc" target="_blank">
+   <button class="green">Checkout</button>
+   </a>
+</center>
+</div>
+<br>
+</div>
+
+<br>
+<br>
+
+<center>
+
+<div id="bordering">
+<center>
 <img title="POMDP Navigation in MiniGrid" alt="Alt text" src="/images/pomdp.jpg">
 </center>
 
