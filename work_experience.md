@@ -37,14 +37,14 @@ permalink: /work_experience/
 <br>
 <center>
 <b style="font-size:20px"> Thesis Title: Agile Flight of a Morphing Robot Using Posture Manipulation and Thrust Vectoring</b><br>
-<b style="font-size:20px"> Duration: May 2025 - Present </b>
+<b style="font-size:20px"> Advisor: Prof. Alireza Ramezani </b><br>
+<b style="font-size:20px"> Duration: May 2025 - May 2026 </b>
 </center>
 <ul id="left">
-    <li> Proposed a hierarchical control framework for agile trajectory tracking on the Multi-Modal Mobility Morphobot (M4) (6 kg), a morphing aerial robot capable of transitioning between ground and aerial configurations, under the guidance of Prof. Alireza Ramezani. </li>
-    <li> Developed the NMPC trajectory optimizer using nonlinear optimization (CasADi/IPOPT), a QP-based real-time thrust allocator, and a thrust-to-PWM mapping pipeline for hardware deployment on a conventional quadrotor platform. </li>
-    <li> Demonstrated in simulation that actively reconfiguring the robot's appendages across aerodynamic regimes to utilize posture manipulation and thrust vectoring outperforms fixed-geometry baselines in tracking error and thrust redistribution, enabling high-speed sharp turns of up to 120°. </li>
-    <li> Validated QP-based real-time thrust allocation under active posture manipulation, demonstrating stable hover throughout randomized joint configuration changes. </li>
-    <li> Performed bench-top motor-ESC characterization via frequency-domain system identification on a VOXL + ESC stack, estimating system parameters (gain K, time constant τ, delay L) from step and sinusoidal excitation using Nonlinear Least Squares and Bode analysis; validated by inverting the model into a force-to-PWM mapping. </li>
+    <li> Proposed a hierarchical motion planning and control framework for agile trajectory tracking on M4, a morphing aerial robot (6 kg) capable of transitioning between ground and aerial configurations, developing an NMPC trajectory optimizer and whole-body controller via inverse-dynamics-based modeling of multi-joint kinematics, accelerated with ACADOS and ALTRO for real-world hardware deployment. </li>
+    <li> Demonstrated high-speed sharp turns of up to 120° in MATLAB and Simscape, showing that actively reconfiguring the robot's appendages via posture manipulation and thrust vectoring reduces peak tracking error by over 60% versus fixed-geometry drone baselines at entry speeds up to 10.5 m/s. </li>
+    <li> Benchmarked and performance-optimized a QP solver-based real-time control loop with solve times below 0.6 ms, validating stable hover under randomly changing joint configurations. </li>
+    <li> Performed hardware-in-the-loop integration and motor servo control on a VOXL2 + ESC embedded system via frequency-domain system identification, estimating system parameters (gain K, time constant τ, delay L) using Nonlinear Least Squares and Bode analysis, and built a thrust-to-PWM pipeline modeling nonlinearity, motor lag, and delay. </li>
 </ul>
 <br>
 <center>
@@ -73,10 +73,13 @@ permalink: /work_experience/
 </center>
 <ul id="left">
     <li> Worked as a research intern at the Multi-Robot Autonomy Lab at IISER Bhopal under the guidance of Dr. P. B. Sujit and Dr. Manoj Kumar Tripathi. </li>
-    <li> Co-developed CFDMPC, a novel framework integrating PINN-based wind field estimation with NMPC (CasADi/IPOPT) for wind-aware UAV path planning in cluttered environments, achieving 100% collision-free navigation across all obstacle configurations while the constant-wind baseline crashed in every multi-obstacle scenario. </li>
-    <li> Trained a data-free PINN using DeepXDE (TensorFlow backend) to solve steady-state RANS equations without precomputed simulation data, enabling millisecond-level wind field inference at arbitrary spatial locations compared to 5 wall-clock hours for traditional CFD solvers. </li>
-    <li> Validated robustness under randomized inlet velocities and directions; demonstrated PINN-predicted wind fields outperform panel-method estimates that misguide the planner into turbulent high-shear gap regions between obstacles, reducing control effort ~9% vs. a full CFD-driven planner. </li>
+    <li> Designed a trajectory optimization and motion planning algorithm for UAVs using nonlinear MPC with CasADi and IPOPT, enforcing obstacle-avoidance constraints and wind-aware path replanning in dynamic, cluttered environments. </li>
+    <li> Trained a data-free physics-informed neural network (DeepXDE, TensorFlow backend) to solve steady-state RANS equations for millisecond-level wind-field inference, enabling 100% collision-free navigation under randomized wind disturbances while reducing control effort by 9% versus a full CFD-driven planner. </li>
 </ul>
+<br>
+<center>
+<a href="https://github.com/Aryaman22102002/UAV_Path_Planning_MPC" target="_blank"> Link to Project </a>
+</center>
 </div>
 
 <br>
@@ -100,8 +103,8 @@ permalink: /work_experience/
 </center>
 <ul id="left">
     <li> Developed Prota: The ROS Bot as part of the e-Yantra Summer Internship, a low-cost open-source educational autonomous ground vehicle designed to teach ROS, SLAM, and navigation from the ground up. </li>
-    <li> Integrated LiDAR, IMU, optical encoders, depth camera, and proximity sensors on a Raspberry Pi; calibrated and synchronized all sensor streams for reliable odometry and localization in a GPS-denied environment. </li>
-    <li> Deployed GMapping and Hector SLAM, used AMCL for localization and ROS move_base for autonomous navigation; validated the full navigation stack first in Gazebo/RViz simulation and then on physical hardware. </li>
+    <li> Performed hardware bring-up and multi-sensor integration of LiDAR, IMU, wheel encoders, depth camera, and proximity sensors on a Raspberry Pi, developing ROS drivers for data acquisition and performing sensor calibration, fusion, and time synchronization for reliable odometry and localization in a GPS-denied environment. </li>
+    <li> Executed real-time SLAM using particle-filter-based localization (GMapping, Hector SLAM) and the ROS move_base navigation stack with AMCL and costmap-based obstacle avoidance, validated in Gazebo/RViz simulation and then on physical hardware. </li>
 </ul>
 <br>
 <center>
