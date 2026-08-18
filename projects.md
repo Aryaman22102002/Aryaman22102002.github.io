@@ -84,8 +84,11 @@ button:before{
 <b style="font-size:30px"> Whole-Body Control Extension for Convex MPC Quadruped Locomotion</b> 
 </center>
 <br>
-Extended an existing convex MPC locomotion stack for the Unitree Go2 quadruped in MuJoCo with a custom whole-body contact-force controller. Formulated a QP over joint torques and contact forces using OSQP and Pinocchio, enforcing rigid-body dynamics, friction constraints, and torque limits, reducing friction cone violations from 92.5% to 0% on low-friction surfaces while solving in 1.3 ms against a 5 ms real-time budget. Currently extending this work into reinforcement learning, using imitation learning from the MPC controller's own reference trajectories to train a PPO policy for the quadruped's gait, having achieved a stable full-length walking gait, with multi-terrain generalization as the next step.
-<br>
+<ul id="left">
+    <li> Extended a convex MPC locomotion stack for the Unitree Go2 quadruped in MuJoCo with a custom whole-body contact-force controller. </li>
+    <li> Formulated a real-time QP over joint torques and contact forces using OSQP and Pinocchio, enforcing rigid-body dynamics, friction pyramid constraints, and torque limits, cutting friction-cone violations from 92.5% to 0% on low-friction surfaces while solving in 1.3 ms against a 5 ms real-time budget. </li>
+    <li> Extended the controller with an event-triggered residual PPO correction, trained via imitation learning from the MPC controller's own reference trajectories, activating only on detected disturbance to cut peak roll by 22-25% under lateral pushes with under 1.5% compute overhead and zero regression to nominal walking. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -111,8 +114,11 @@ Extended an existing convex MPC locomotion stack for the Unitree Go2 quadruped i
 <b style="font-size:30px"> POMDP Navigation in MiniGrid</b> 
 </center>
 <br>
-Compared online POMDP planning (POMCP) against recurrent deep RL methods (PPO and A2C with LSTM) for partially observable navigation across 5 MiniGrid environments of increasing complexity. Recurrent PPO solved all environments including a 6-room layout while POMCP degraded on larger tasks due to exponential belief space growth. Identified LSTM memory, exploration bonuses, and correct action space design as jointly necessary for success in multi-room POMDPs.
-<br>
+<ul id="left">
+    <li> Compared POMCP (online POMDP planning) against recurrent PPO and A2C with LSTM across 5 MiniGrid environments of increasing complexity. </li>
+    <li> Recurrent PPO solved all 5 environments including a 6-room layout while POMCP degraded on larger tasks due to exponential belief space growth. </li>
+    <li> Identified LSTM memory, exploration bonuses, and correct action-space design as jointly necessary for success in multi-room POMDPs. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -139,8 +145,11 @@ Compared online POMDP planning (POMCP) against recurrent deep RL methods (PPO an
 <b style="font-size:30px"> Camera Lidar Temporal Calibration</b> 
 </center>
 <br>
-As part of my EECE7150 Autonomous Field Robotics course's project at Northeastern University, I developed a camera–LiDAR temporal calibration method based on geometric and visual edge alignment across sensors. Additionaly, I estimated sub-frame time offsets via robust optimization and validated alignment using LiDAR-to-image projection overlays.
-<br>
+<ul id="left">
+    <li> Built an offline temporal calibration pipeline for camera-LiDAR time synchronization on the Hunter robot, as part of my EECE7150 Autonomous Field Robotics course project at Northeastern University. </li>
+    <li> Constructed a cross-modal alignment metric using projected LiDAR points scored against Canny edge distance transforms, then estimated the inter-sensor time offset via Powell optimization and dense grid search, recovering a consistent ~73 ms offset. </li>
+    <li> Extended to joint 7-DOF optimization over temporal offset and extrinsic parameters using IMU pre-integration for motion compensation, and validated alignment using LiDAR-to-image projection overlays. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -168,8 +177,11 @@ As part of my EECE7150 Autonomous Field Robotics course's project at Northeaster
 <b style="font-size:30px"> 3D Reconstruction Using Structure-from-Motion</b> 
 </center>
 <br>
-As part of my EECE7150 Autonomous Field Robotics course's project at Northeastern University, I developed an end-to-end Structure-from-Motion pipeline from scratch to estimate camera poses and reconstruct sparse 3D structure from multi-view images. I aslo applied global bundle adjustment with GTSAM to significantly reduce reprojection error and improve trajectory consistency.
-<br>
+<ul id="left">
+    <li> Built a complete incremental Structure-from-Motion pipeline from scratch to recover sparse 3D structure and camera poses from 24 images of a Buddha statue, as part of my EECE7150 Autonomous Field Robotics course project at Northeastern University. </li>
+    <li> Implemented SIFT feature extraction, RANSAC-based Essential matrix estimation, and cheirality-based pose recovery, then triangulated points and extended the map incrementally via PnP. </li>
+    <li> Applied global bundle adjustment using GTSAM with Huber robust loss, reducing mean reprojection error from 1.28 px to 0.55 px, a 57% improvement. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -196,8 +208,11 @@ As part of my EECE7150 Autonomous Field Robotics course's project at Northeaster
 <b style="font-size:30px"> BBS Scan Matching Cpu</b> 
 </center>
 <br>
-As part of my EECE5550 Mobile Robotics course's project at Northeastern University, I reproduced a simplified, CPU-only version of the implementation of the 3D-BBS (Branch-and-Bound Scan Matching) algorithm for global localization using LiDAR data. This project aligns 3D LiDAR scans to a voxelized map by exhaustively searching a 4D pose space (x, y, z, yaw) and scoring candidates using voxel occupancy overlap. This algorithm was originally proposed in the 3D-BBS: Global Localization for 3D Point Cloud Scan Matching Using Branch-and-Bound paper.
-<br>
+<ul id="left">
+    <li> Reimplemented a simplified, CPU-only version of 3D-BBS (Branch-and-Bound Scan Matching, ICRA 2024) for training-free global LiDAR localization, as part of my EECE5550 Mobile Robotics course project at Northeastern University. </li>
+    <li> Built a voxel map using a spatial hash table, defined a 4D search space (x, y, z, yaw), and implemented hierarchical Branch-and-Bound search with a max-priority queue for candidate pruning. </li>
+    <li> Evaluated on KITTI Sequence 00, achieving under 5 m ATE and under 1-degree AOE across perturbed and fake initializations. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -222,8 +237,11 @@ As part of my EECE5550 Mobile Robotics course's project at Northeastern Universi
 <b style="font-size:30px"> Cruise Control System</b> 
 </center>
 <br>
-As part of our ME5659 Control Systems Course course's project at Northeastern University, we focused on designing and comparing three different controllers: PID, Lead-Lag, and LQR, for regulating the velocity of a Toyota Camry XLE under aerodynamic and rolling resistance forces. 
-<br>
+<ul id="left">
+    <li> Designed and simulated a longitudinal cruise control system for a Toyota Camry XLE using MATLAB and Simulink, as part of our ME5659 Control Systems course project at Northeastern University. </li>
+    <li> Modeled vehicle dynamics including aerodynamic drag, rolling resistance, and drivetrain forces from real-world specifications. </li>
+    <li> Designed and compared PID, LQR, and lead-lag controllers, achieving 1.59% overshoot with PID while identifying LQR's steady-state error and lead-lag's degraded performance under nonlinear dynamics, motivating optimization-based control (NMPC) as the natural next step for handling plant nonlinearities at higher speeds. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -247,8 +265,11 @@ As part of our ME5659 Control Systems Course course's project at Northeastern Un
 <b style="font-size:30px"> Sensor Fusion Of GPS And IMU Data For Automotive Dead Reckoning</b> 
 </center>
 <br>
-Created custom ROS 2 messages and drivers for GPS and IMU sensors and collected data using the NUANCE autonomous car provided by Northeastern University. Analyzed the IMU's noise characteristics through Allan Variance and calibrated magnetometer by correcting hard and soft iron distortions and error compensation in IMU and GPS data. Compensated for accelerometer bias to estimate the vehicle’s forward velocity, and fused the yaw angle computed from the gyroscope and magnetometer data using a complementary filter to estimate heading for Dead Reckoning with IMU.
-<br>
+<ul id="left">
+    <li> Collected GPS and IMU data using the NUANCE autonomous car provided by Northeastern University to perform automotive dead reckoning. </li>
+    <li> Developed custom ROS 2 message types and drivers for the VN-100 IMU and GPS, and performed magnetometer hard-iron and soft-iron calibration via SVD-based ellipse fitting. </li>
+    <li> Fused gyroscope-integrated yaw with corrected magnetometer yaw via a Butterworth complementary filter, and estimated forward velocity via zero-velocity-update-corrected accelerometer integration to reconstruct the full vehicle trajectory, validated against GPS UTM ground truth. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -272,8 +293,11 @@ Created custom ROS 2 messages and drivers for GPS and IMU sensors and collected 
 <b style="font-size:30px"> FAST-LIO Loop Closure Test On NUANCE</b> 
 </center>
 <br>
-Collected data in NUANCE autonomous car using the Ouster 3D lidar, VectorNav (VN-100) IMU, and GPS sensors while driving around the streets of Boston. Tested FAST-LIO, FAST-LIO LC, and LIO-SAM on standard datasets as well as on our data, displayed the results for FAST-LIO and FAST-LIO LC, and highlighted challenges faced in LIO-SAM. Compared the results obtained from FAST-LIO and FAST-LIO LC to highlight the advantages of Loop Closure in SLAM algorithms. 
-<br>
+<ul id="left">
+    <li> Collected a real-world urban LiDAR-inertial dataset aboard the NUANCE autonomous car, driving a loop through the streets of Boston near Northeastern's EXP Building. </li>
+    <li> Attempted to run LIO-SAM on the collected data; encountered a blocking challenge, as LIO-SAM requires an external 9-DOF IMU with time-synchronized timestamps, which could not be resolved using the LiDAR's internal 6-DOF IMU. </li>
+    <li> Successfully ran FAST-LIO (tightly-coupled iEKF-based LiDAR-inertial odometry) on the custom dataset, then deployed FAST-LIO-LC, an open-source loop-closure extension, which substantially reduced trajectory drift and improved global consistency versus the baseline. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -298,8 +322,11 @@ Collected data in NUANCE autonomous car using the Ouster 3D lidar, VectorNav (VN
 <b style="font-size:30px"> Pick and Place Using PincherX100 Robot Manipulator</b> 
 </center>
 <br>
-Performed pick-and-place task for a cylindrical payload using the PincherX100 robot manipulator. Employed concepts such as forward kinematics and Inverse Kinematics and designed a Trajectory Planner for the end-effector of the arm. Implemented obstacle avoidance along with the normal pick-and-place function of the arm.
-<br>
+<ul id="left">
+    <li> Programmed a PincherX100 4-DOF robot arm in MATLAB to autonomously pick and place a cylindrical payload using analytical kinematics. </li>
+    <li> Derived forward kinematics analytically using DH parameters, and solved inverse kinematics numerically via iterative Jacobian methods for arbitrary end-effector poses. </li>
+    <li> Designed a joint-space trajectory planner using linear interpolation for smooth, singularity-avoiding motion, with a collision-avoidance constraint routing the arm around a cylindrical obstacle in the workspace. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -325,8 +352,11 @@ Performed pick-and-place task for a cylindrical payload using the PincherX100 ro
 <b style="font-size:30px"> Eyantra Robotics Competition, Theme: Dairy Bike</b> 
 </center>
 <br>
-Secured 3rd place in the Eyantra Robotics Competition 2021 - 2022. Developed a two wheeled bike which uses Linear Quadratic Regulator (LQR) to balance itself. Used State-Space equations and Euler Lagrange method to mathematically model the bike. Designed a custom 4-DOF arm to pick and place the dairy products. Navigated the bike through the arena overcoming various obstacles placed at different points in the entire arena.
-<br>
+<ul id="left">
+    <li> Designed and simulated a two-wheeled dairy delivery robot in CoppeliaSim (CAD in Fusion 360), equipped with a custom 4-DOF arm, navigating an arena with slopes, speed breakers, sharp turns, and curved paths. </li>
+    <li> Performed complete mathematical modeling in GNU Octave using Euler-Lagrange dynamics, deriving a linearized state-space model and designing an LQR controller to stabilize the two-wheeled platform. </li>
+    <li> Implemented path following via waypoint interpolation and FK/IK for the 4-DOF arm, with custom Lua logic handling dynamic pickup and dropoff commands issued at runtime; placed 3rd out of 242 teams. </li>
+</ul>
 <br>
 
 <center>
@@ -357,8 +387,11 @@ Secured 3rd place in the Eyantra Robotics Competition 2021 - 2022. Developed a t
 <b style="font-size:30px"> Wall-e-simulation-ros2 </b> 
 </center>
 <br>
-Designed a two-wheeled robot and wrote self-balancing and line-following algorithms for it using Propotional Integral Derivative (PID) controller. Solidworks was used to design the robot. Used ROS 2 Foxy and Gazebo to simulate it.
-<br>
+<ul id="left">
+    <li> Designed and simulated a two-wheeled self-balancing and line-following robot in Gazebo using ROS 2, modeling the robot CAD in SolidWorks and exporting it as a URDF. </li>
+    <li> Implemented and manually tuned PID controllers for self-balancing (inner loop) and line-following (outer loop) independently, then integrated both into a combined controller. </li>
+    <li> Validated the full combined behavior in Gazebo/RViz simulation. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -382,8 +415,11 @@ Designed a two-wheeled robot and wrote self-balancing and line-following algorit
 <b style="font-size:30px"> OptiDepth </b> 
 </center>
 <br>
-Performed accelerated depth estimation on reflective and transparent surfaces through quantization optimization.
-<br>
+<ul id="left">
+    <li> Investigated post-training quantization strategies to deploy monocular depth estimation models (MirrorNet, GDNet) on the OAK-D embedded hardware platform. </li>
+    <li> Applied FP32-to-FP16 quantization, achieving a 69% reduction in model memory footprint and a 50% increase in inference throughput, enabling real-time depth estimation on the OAK-D. </li>
+    <li> Extended the quantization pipeline to INT8 precision, systematically analyzing the accuracy-latency trade-off to characterize the limits of aggressive quantization on resource-constrained hardware. </li>
+</ul>
 <br>
 <div id="frozen-btn">
 <center>
@@ -522,9 +558,3 @@ Designed a Printed Circuit Board (PCB) for Line Sensor Array (LSA). It was a bas
 <br>
 </div>
 </center>
-
-
-
-
-
-
