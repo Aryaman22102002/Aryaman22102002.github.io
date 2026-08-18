@@ -32,9 +32,11 @@ permalink: /education/
 <br>
 <b> Degree:</b> Master's in Robotics
 <br>
-<b> Duration:</b> 2024 - 2026
+<b> Duration:</b> September 2024 - May 2026
 <br>
 <b> GPA:</b> 3.96/4
+<br>
+<b> Relevant Courses:</b> Robotics Sensing and Navigation, Robot Mechanics and Control, Mobile Robotics, Control Systems Engineering, Autonomous Field Robotics, Reinforcement Learning, Master's Project, Master's Thesis
 </center>
 </div>
 
@@ -55,9 +57,11 @@ permalink: /education/
 <br>
 <b> Degree:</b> B.Tech in Computer Engineering
 <br>
-<b> Duration:</b> 2020 - 2024
+<b> Duration:</b> September 2020 - May 2024
 <br>
 <b> CGPA:</b> 8.14/10.00
+<br>
+<b> Relevant Courses:</b> Data Structures and Algorithms, Design and Analysis of Algorithms, Data Interpretation and Analysis, Artificial Intelligence, Machine Learning, C++ Programming, Python Programming, Internet of Things (IOT)
 </center>
 </div>
 <br>
@@ -97,9 +101,3 @@ Secured Distinction (94.80%) in Secondary School Certificate Examination.
 </center>
 </div>
 </center>
-
-
-
-
-
-
